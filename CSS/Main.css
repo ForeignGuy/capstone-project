@@ -6,7 +6,7 @@ body {
 
 #Welcome_Bar {
 	background-color: lightblue;
-	height: 150px;
+	height: 175px;
 	padding-right: 20px;
 	padding-left: 20px;
 }
@@ -30,13 +30,13 @@ h1 {
 
 /* Main Welcome Bar (Login) */
 
-#Login_Area {
+.Login_Or_Logout_Area {
 	margin-right: 20px;
 	margin-top: -90px;
 }
 
-#Login_Title {
-	margin-left: 185px;
+#Login_Title{
+	margin-left: 180px;
 	font-weight: bold;
 	text-decoration: underline;
 }
@@ -47,11 +47,26 @@ h1 {
 	text-align: right;
 }
 
-#Login_And_Register_Buttons {
+.Login_And_Register_Buttons {
 	margin-right: 10px;
 	margin-top: 10px;
 	width: 70px;
 	margin-left: 5px;
+}
+
+#Logout_Title {
+	margin-right: 120px;
+	margin-top: 70px;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#Logout_Button {
+	margin-top: -60px;
+	margin-right: -87px;
+	height: 20px;
+	width: 100px;
 }
 
 /* Useful, Generalized Classes */
