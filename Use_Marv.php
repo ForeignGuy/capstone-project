@@ -44,5 +44,9 @@
 				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
 			</form>
 		</div>
+		
+		<form method='POST' action="PHP_Actions/Use_Marv.php">
+			<input type="submit" value="Use Marv"> 
+		</form>
 	</body>
 </html>
