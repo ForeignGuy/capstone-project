@@ -12,7 +12,7 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<span id="Greetings" class="Center"> <h1> Welcome to Marv<?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?> </h1></span>
-			<span class="Welcome_Item"> Homepage </span> 
+			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span> 
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span> 
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span> 
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span> 
