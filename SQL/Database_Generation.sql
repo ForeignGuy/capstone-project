@@ -11,9 +11,9 @@ CREATE SCHEMA IF NOT EXISTS `Marv_Related_Information` DEFAULT CHARACTER SET utf
 USE `Marv_Related_Information` ;
 
 -- -----------------------------------------------------
--- Table `Marv_Related_Information`.`Users`
+-- Table `Marv_Related_Information`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Marv_Related_Information`.`Users` (
+CREATE TABLE IF NOT EXISTS `Marv_Related_Information`.`users` (
   `User_Number` INT(255) NOT NULL AUTO_INCREMENT,
   `Username` VARCHAR(30) NOT NULL,
   `Password` VARCHAR(30) NOT NULL,
@@ -31,13 +31,13 @@ ENGINE = InnoDB;
 -- Table `Marv_Related_Information`.`User_Account_Type`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Marv_Related_Information`.`User_Account_Type` (
-  `Users_User_Number` INT(255) NOT NULL,
+  `users_User_Number` INT(255) NOT NULL,
   `Admin_Account` TINYINT NOT NULL,
-  PRIMARY KEY (`Users_User_Number`),
-  UNIQUE INDEX `Users_User_Number_UNIQUE` (`Users_User_Number` ASC),
-  CONSTRAINT `fk_User_Account_Type_Users`
-    FOREIGN KEY (`Users_User_Number`)
-    REFERENCES `Marv_Related_Information`.`Users` (`User_Number`)
+  PRIMARY KEY (`users_User_Number`),
+  UNIQUE INDEX `users_User_Number_UNIQUE` (`users_User_Number` ASC),
+  CONSTRAINT `fk_User_Account_Type_users`
+    FOREIGN KEY (`users_User_Number`)
+    REFERENCES `Marv_Related_Information`.`users` (`User_Number`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -49,13 +49,13 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Marv_Related_Information`.`User_Comments` (
   `User_Message_Number` INT(255) NOT NULL AUTO_INCREMENT,
   `Comment_Text` LONGTEXT NOT NULL,
-  `Users_User_Number` INT(255) NOT NULL,
-  PRIMARY KEY (`User_Message_Number`, `Users_User_Number`),
+  `users_User_Number` INT(255) NOT NULL,
+  PRIMARY KEY (`User_Message_Number`, `users_User_Number`),
   UNIQUE INDEX `User_Message_Number_UNIQUE` (`User_Message_Number` ASC),
-  INDEX `fk_User_Comments_Users1_idx` (`Users_User_Number` ASC),
-  CONSTRAINT `fk_User_Comments_Users1`
-    FOREIGN KEY (`Users_User_Number`)
-    REFERENCES `Marv_Related_Information`.`Users` (`User_Number`)
+  INDEX `fk_User_Comments_users1_idx` (`users_User_Number` ASC),
+  CONSTRAINT `fk_User_Comments_users1`
+    FOREIGN KEY (`users_User_Number`)
+    REFERENCES `Marv_Related_Information`.`users` (`User_Number`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
