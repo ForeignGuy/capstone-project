@@ -31,9 +31,12 @@
 							<input type='text' name='Password' id='Password' required>
 							
 							<br>
-
-							<input type='submit' id='Register' class='Login_And_Register_Buttons Float_Right' name='Register' value='Register'> <input type='submit' id='Login' class='Login_And_Register_Buttons Float_Right' name='Login' value='Login'>
-					</form>";
+ 
+							<input type='submit' id='Login' class='Login_And_Register_Buttons Float_Right' name='Login' value='Login'>
+					</form>
+					
+					<a href='Marv_Reg.php'> <button id='Register' class='Login_And_Register_Buttons Float_Right' name='Register' value='Register'> Register </button> </a>";
+					
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'> 
 							<h4 id='Logout_Title'> Log Out </h4>

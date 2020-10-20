@@ -4,6 +4,7 @@
 	
 	$UserUsername = $_POST['Username'];
 	$UserPassword = $_POST['Password'];
+	$currentUsername = $_SESSION['Username'];
 	
 	if (isset($_POST['Login'])) {
 		if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `users` WHERE (Username = $UserUsername) AND (Password = $UserPassword)")) > 0) {
@@ -18,7 +19,7 @@
 		if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `users` WHERE (Username = $UserUsername)")) < 1) {
 			mysqli_query($connection, "INSERT INTO `users` (Username, Password) VALUES ('$UserUsername', '$UserPassword')");
 			
-			$currentLogin = mysqli_query($connection, "SELECT Username FROM `users` WHERE Username=$_SESSION['Username']");
+			$currentLogin = mysqli_query($connection, "SELECT Username FROM `users` WHERE Username=$currentUsername");
 			mysqli_query($connection, "INSERT INTO `user_account_type` (Users_User_Number, Admin_Account) VALUES ($currentLogin, 0)");
 			header("Location: ../Homepage.php");
 		} else {
