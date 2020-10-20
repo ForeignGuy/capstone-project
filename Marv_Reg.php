@@ -4,11 +4,8 @@
 
 <html>
 	<head> 
-<<<<<<< HEAD
 		<title> About Marv </title>
-=======
 		<title> Registration </title>
->>>>>>> dd51ca12c4e0b0f7a9e51747022b94b6ed170a49
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="CSS/Main.css">
 	</head>
