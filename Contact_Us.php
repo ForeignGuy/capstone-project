@@ -20,9 +20,11 @@
 
 			<?php
 
-			if(!isset($_SESSION['Username'])) {
+			if(!isset($_SESSION['Username']))
+      {
 				echo "login required";
-				exit();
+					 exit();
+
            }
 				if (!isset($_SESSION['Username'])) { echo "
 					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Action.php'> 
