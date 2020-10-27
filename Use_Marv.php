@@ -3,6 +3,7 @@
 ?>
 
 
+
 <html>
 	<head>
 		<title> Use Marv </title>
@@ -21,11 +22,6 @@
 
 			<?php
 
-			if(!isset($_SESSION['Username'])) {
-				echo "login required";
-				exit();
-
-           }
 				if (!isset($_SESSION['Username'])) { echo "
 					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Action.php'> 
 						<h4 id='Login_Title'> Sign-in/Register </h4> 
@@ -43,11 +39,13 @@
 					</form>
 					
 					<a href='Marv_Reg.php'> <button id='Register' class='Login_And_Register_Buttons Float_Right' name='Register' value='Register'> Register </button> </a>";
-				} else {
-					echo "<div class='Login_Or_Logout_Area Float_Right'>
-							<h4 id='Logout_Title'> Log Out </h4>
-						  </div>";
 				}
+				
+				if(!isset($_SESSION['Username'])) {
+					echo '<script type="text/javascript">alert("LoginRequired");</script>';
+						 exit();
+
+						 }
 			?>
 			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
 				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>

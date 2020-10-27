@@ -9,7 +9,7 @@
 	$currentUsername = $_SESSION['Username'];
 	
 	if (isset($_POST['Login'])) {
-		if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `users` WHERE (Username = $UserUsername) AND (Password = $UserPassword)")) > 0) {
+		if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `users` WHERE (Username = '$UserUsername') AND (Password = '$UserPassword')")) > 0) {
 			$_SESSION['Username'] = $UserUsername;
 			header("Location: ../Homepage.php");
 		} else {
