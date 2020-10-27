@@ -44,7 +44,7 @@
 				}
 				
 			if(!isset($_SESSION['Username'])) {
-				echo "login required";
+				echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';
 					 exit();
            }
 			?>
