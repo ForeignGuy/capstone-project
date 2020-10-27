@@ -22,7 +22,7 @@
         <div align='center'>
         <?php 
 				if (!isset($_SESSION['Username'])) { echo "
-					<form method='POST' action='PHP_Actions/Login_Or_Register.php'> 
+					<form method='POST' action='PHP_Actions/Login_Action.php'> 
 						<br><h1> Register </h1> <br><br>
 							<label for='Email_Address'> Email Address </label> <br>
 							<input placeholder='Email Address' type='text' name='Email_Address' id='Email_Address' size='75' required>
@@ -34,12 +34,12 @@
 							
 							<br><br>
                             
-                            				<label for='Password'> Password </label> <br>
+							<label for='Password'> Password </label> <br>
 							<input placeholder='Password' type='text' name='Password' id='Password' size='75' required>
 							
 							<br><br>
                             
-                            				<label for='Phone_Number'> Phone Number </label> <br>
+							<label for='Phone_Number'> Phone Number </label> <br>
 							<input placeholder='(Optional)' type='text' name='Phone_Number' id='Phone_Number' size='75' optional>
 							
 							<br><br><br>
