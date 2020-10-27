@@ -53,16 +53,16 @@
 			</form>
 		</div>
 	</body>
+	
 	<footer>
-	<form action="\action_page">
-	    <!-- // I'm assuming that you can only submit comments if the user is logged in. -->
-	    <!-- // Otherwise there's no way to get the Users_User_Number -->
-        <label for="feedback">Any feedback about MARV or this site? Please provide it here:</label>
-        <br>
-        <textarea id="feedback" name="feedback" rows="6" cols="75">Feedback Text Box
-        </textarea>
-        <br>
-        <input type='submit' id='feedback' name='feedback_submit' value='Submit Feedback'>
+		<form action="\action_page">
+			<!-- // I'm assuming that you can only submit comments if the user is logged in. -->
+			<!-- // Otherwise there's no way to get the Users_User_Number -->
+			<label for="feedback">Any feedback about MARV or this site? Please provide it here:</label>
+			<br>
+			<textarea id="feedback" name="feedback" rows="6" cols="75" placeholder="Please write your comment here!"></textarea>
+			<br>
+			<input type='submit' id='feedback' name='feedback_submit' value='Submit Feedback'>
         </form>
 
 	</footer>
