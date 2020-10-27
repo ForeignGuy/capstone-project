@@ -20,12 +20,6 @@
 
 			<?php
 
-			if(!isset($_SESSION['Username']))
-      {
-				echo "login required";
-					 exit();
-
-           }
 				if (!isset($_SESSION['Username'])) { echo "
 					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Action.php'> 
 						<h4 id='Login_Title'> Sign-in/Register </h4> 
@@ -48,6 +42,11 @@
 							<h4 id='Logout_Title'> Log Out </h4>
 						  </div>";
 				}
+				
+			if(!isset($_SESSION['Username'])) {
+				echo "login required";
+					 exit();
+           }
 			?>
 			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
 				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
