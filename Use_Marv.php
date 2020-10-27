@@ -45,7 +45,7 @@
 					echo '<script type="text/javascript">alert("LoginRequired");</script>';
 						 exit();
 
-						 }
+				 }
 			?>
 			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
 				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
