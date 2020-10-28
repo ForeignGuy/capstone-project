@@ -6,7 +6,6 @@
 	$UserPassword = $_POST['Password'];
 	$UserEmail = $_POST['Email_Address'];
 	$UserPhone = $_POST['Phone_Number'];
-	$currentUsername = $_SESSION['Username'];
 	
 	if (isset($_POST['Login'])) {
 		if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `users` WHERE (Username = '$UserUsername') AND (Password = '$UserPassword')")) > 0) {
