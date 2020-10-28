@@ -54,7 +54,7 @@
 			</form>
 		</div>
 
-		<form method='POST' action="PHP_Actions/Use_Marv.php">
+		<form method='POST' action="PHP_Actions/Use_Marv_Action.php">
 			<input type="submit" value="Use Marv">
 		</form>
 	</body>
