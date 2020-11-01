@@ -55,14 +55,14 @@
 	</body>
 	
 	<footer>
-		<form action="\action_page">
+		<form method="POST" action="PHP_Actions/Contact_Us_Action.php">
 			<!-- // I'm assuming that you can only submit comments if the user is logged in. -->
 			<!-- // Otherwise there's no way to get the Users_User_Number -->
-			<label for="feedback">Any feedback about MARV or this site? Please provide it here:</label>
+			<label for="Feedback_Box">Any feedback about MARV or this site? Please provide it here:</label>
 			<br>
-			<textarea id="feedback" name="feedback" rows="6" cols="75" placeholder="Please write your comment here!"></textarea>
+			<textarea id="Feedback_Box" name="Feedback_Box" rows="6" cols="75" placeholder="Please write your comment here!"></textarea>
 			<br>
-			<input type='submit' id='feedback' name='feedback_submit' value='Submit Feedback'>
+			<input type='submit' id='Feedback_Submit' name='Feedback_Submit' value='Submit Feedback'>
         </form>
 
 	</footer>
