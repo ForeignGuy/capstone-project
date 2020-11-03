@@ -1,5 +1,6 @@
 <?php 
-$command = escapeshellcmd('MarvTest.py');
-$output = shell_exec($command);
-echo $output;
+    $dog = "Dog";
+    $command = escapeshellcmd("MarvTest.py $dog");
+    $output = shell_exec($command);
+    echo $output;
 ?>
