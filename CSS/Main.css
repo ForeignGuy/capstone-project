@@ -69,7 +69,12 @@ h1 {
 	width: 100px;
 }
 
-#Register {
+#Register_Button {
+	margin-top: 0px;
+	margin-right: -230px;
+}
+
+#Register_Submit {
 	margin-top: 40.5px;
 	margin-right: -230px;
 }

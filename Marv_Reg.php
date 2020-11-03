@@ -22,7 +22,7 @@
         <div align='center'>
         <?php 
 				if (!isset($_SESSION['Username'])) { echo "
-					<form method='POST' action='PHP_Actions/Login_Action.php'> 
+					<form method='POST' action='PHP_Actions/Login_Or_Register.php'> 
 						<br><h1> Register </h1> <br><br>
 							<label for='Email_Address'> Email Address </label> <br>
 							<input placeholder='Email Address' type='text' name='Email_Address' id='Email_Address' size='75' required>
@@ -44,7 +44,7 @@
 							
 							<br><br><br>
 
-							<button style='width: 100; height: 35; margin-right:-30px;' type='submit' id='Register' name='Register' value='Register'> Register </button>
+							<button style='width: 100; height: 35; margin-right:-30px;' type='submit' id='Register_Submit' name='Register_Submit' value='Register'> Register </button>
 					</form>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'> 
