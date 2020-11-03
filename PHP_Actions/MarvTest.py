@@ -7,6 +7,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import PassiveAggressiveClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
+from random import randint
+
+# max_columns to view the whole string.
+pd.set_option('display.max_columns', None)
+pd.set_option('display.expand_frame_repr', False)
+# dont worry about the futureWarning Error.
+pd.set_option('max_colwidth', -1)
 
 # the default configuration i'm pushing this code in is to calculate an accuracy percentage between two
 # unrelated data sets. It can do the other tests by uncommenting code blocks
@@ -24,19 +31,20 @@ df.shape
 df.head()
 
 # find and replace code to get rid of a few phrases in the beeg data set. Dont worry about this it works great
-dfm = [df['text'][i].replace('WASHINGTON (Reuters) - ', '').replace('LONDON (Reuters) - ', '').replace('(Reuters) - ', '') for i in range(len(df['text']))]
-df['text'] = dfm
+# dfm = [df['text'][i].replace('WASHINGTON (Reuters) - ', '').replace('LONDON (Reuters) - ', '').replace('(Reuters) - ', '') for i in range(len(df['text']))]
+# df['text'] = dfm
 
 # piece of test code to print the first entry in the test. If your using userInput.csv, it'll print the user input
 # print(df1['text'][0])
 
 # this is commented out placeholder code for splitting the dataset, don't use if your using the below code
-# x_train,x_test,y_train,y_test=train_test_split(df['text'], df['label'], test_size=0.5, random_state=7, shuffle=True)
+x_train, x_test, y_train, y_test = train_test_split(df['text'], df['label'], test_size=0.5, random_state=randint(0, 40000))
+print(x_test)
 
 # new xtrain and ytrain variable definitions. The dataset is not split using these, don't use if you're splitting
 # the dataset
-x_train = df['text']    # df text refers to the text column of the dataframe defined above
-y_train = df['label']   # df label refers to the label column of the dataframe defined above
+# x_train = df['text']    # df text refers to the text column of the dataframe defined above
+# y_train = df['label']   # df label refers to the label column of the dataframe defined above
 
 # Initialize TfidVectorizer
 tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)
@@ -80,4 +88,3 @@ def findlabel(newtext):
 
 percent = sum([1 if findlabel((df1['text'][i])) == df1['label'][i] else 0 for i in range(len(df1['text']))])/df1['text'].size
 print(percent)
-
