@@ -9,8 +9,10 @@ from sklearn.linear_model import PassiveAggressiveClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 from random import randint
 import sys
+
 print("The headline you gave us: ")
 print(sys.argv[1])
+
 
 # max_columns to view the whole string.
 pd.set_option('display.max_columns', None)
@@ -91,3 +93,4 @@ def findlabel(newtext):
 
 percent = sum([1 if findlabel((df1['text'][i])) == df1['label'][i] else 0 for i in range(len(df1['text']))])/df1['text'].size
 print(percent)
+
