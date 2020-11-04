@@ -49,13 +49,12 @@
 			</form>
 		</div>
 
-		<form method='POST' action="PHP_Actions/Use_Marv_Action.php">
-			<label for="Use_Marv">Input_Headline:</label>
+		<form method="POST" action="PHP_Actions/Use_Marv_Action.php">
+			<label for="Use_Marv">Input Headline:</label>
 			<br>
-			<textarea id="Use_Marv" name="Use_Marv" rows="5" cols="75" placeholder="Please search here"></textarea>
+			<textarea id="Headline" name="Headline" rows="5" cols="75" placeholder="Please search here"></textarea>
 			<br>
 			<input type="submit" value="Use Marv">
-
 		</form>
 	</body>
 </html>

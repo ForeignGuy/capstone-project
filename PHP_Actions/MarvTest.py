@@ -8,6 +8,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import PassiveAggressiveClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 from random import randint
+import sys
+print("The headline you gave us: ")
+print(sys.argv[1])
 
 # max_columns to view the whole string.
 pd.set_option('display.max_columns', None)
