@@ -37,24 +37,31 @@
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
 							<h4 id='Logout_Title'> Log Out </h4>
 						  </div>";
-				}
-				if(!isset($_SESSION['Username'])) {
-								echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';
-									 exit();
-				           }
+
+		}
+		if(!isset($_SESSION['Username'])) {
+						echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';
+							 exit();
+							 }
 
 			?>
 			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
-				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
+				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; }
+
+				?>
+
 			</form>
 		</div>
 
 		<form method="POST" action="PHP_Actions/Use_Marv_Action.php">
-			<label for="Use_Marv">Input Headline:</label>
-			<br>
-			<textarea id="Headline" name="Headline" rows="5" cols="75" placeholder="Please search here"></textarea>
-			<br>
-			<input type="submit" value="Use Marv">
-		</form>
+   <input type="text" id="Headline" name="Headline" style="width:30%;" required>
+   <input type="submit" name="submit" value="Use_Marv" />
+</form>
+<?php
+if(array_key_exists('Headline', $_GET)){
+     echo $_GET['Headline'];
+     }?>
+
+
 	</body>
 </html>
