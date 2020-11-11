@@ -44,7 +44,7 @@
 							
 							<br><br><br>
 
-							<button style='width: 100; height: 35; margin-right:-30px;' type='submit' id='Register_Submit' name='Register_Submit' value='Register'> Register </button>
+							<button style='width: 100; height: 35; margin-right:-10px;' type='submit' id='Register_Submit' name='Register_Submit' value='Register'> Register </button>
 					</form>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'> 

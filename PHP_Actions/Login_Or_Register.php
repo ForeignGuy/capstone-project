@@ -22,7 +22,7 @@
 			header("Location: ../Homepage.php");
 		} else {
 			echo '<script type="text/javascript"> alert("That username already exists! Try another one."); </script>';
-			echo '<script type="text/javascript"> window.location.href="../Homepage.php" </script>';
+			echo '<script type="text/javascript"> window.location.href="../Marv_Reg.php" </script>';
 		}
 	
 	} else {
