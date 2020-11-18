@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	$connection = mysqli_connect("localhost", "root", "", "Marv_Related_Information");
 ?>
 
 <html>
@@ -18,6 +19,21 @@
 			<span class="Welcome_Item"> Use Marv </span>
 			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
 
+			<?php
+				if (isset($_SESSION['Username'])) {
+					$CurrentUsername = $_SESSION['Username'];
+					$CurrentUserNumberQuery = mysqli_query($connection, "SELECT User_Number FROM `users` WHERE Username='$CurrentUsername'");
+					
+					while ($row = mysqli_fetch_assoc($CurrentUserNumberQuery)) {
+						$CurrentUserNumber = $row["User_Number"];
+						$AdminOrNot = mysqli_query($connection, "SELECT users.User_Number, user_account_type.Admin_Account FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number WHERE (user_account_type.Admin_Account != 0 && user_account_type.Users_User_Number = '$CurrentUserNumber')");
+					
+						if (mysqli_num_rows($AdminOrNot) > 0) {
+							echo "<br> <span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
+						} 	
+					}
+				}
+			?>
 
 			<?php
 				if (!isset($_SESSION['Username'])) { echo "
@@ -38,11 +54,12 @@
 							<h4 id='Logout_Title'> Log Out </h4>
 						  </div>";
 
-		}
-		if(!isset($_SESSION['Username'])) {
-						echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';
-							 exit();
-							 }
+				}
+				
+				if(!isset($_SESSION['Username'])) {
+					echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';
+					 exit();
+				 }
 
 			?>
 			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
@@ -54,14 +71,9 @@
 		</div>
 
 		<form method="POST" action="PHP_Actions/Use_Marv_Action.php">
-   <input type="text" id="Headline" name="Headline" style="width:30%;" required>
-   <input type="submit" name="submit" value="Use_Marv" />
-</form>
-<?php
-if(array_key_exists('Headline', $_GET)){
-     echo $_GET['Headline'];
-     }?>
-
-
+			<h2> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below, rather than just the article headline/title. </h2>
+			<input type="text" id="Headline" name="Headline" style="width:30%;" required>
+			<input type="submit" name="submit" value="Click To See Article Validity" />
+		</form>
 	</body>
 </html>

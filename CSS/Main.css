@@ -28,6 +28,11 @@ h1 {
 	padding-right: 20px;
 }
 
+#Admin_Menu_Link {
+	margin-left: 450px;
+	font-size: 40px;
+}
+
 /* Main Welcome Bar (Login) */
 
 .Login_Or_Logout_Area {
@@ -79,6 +84,36 @@ h1 {
 	margin-right: -230px;
 }
 
+/* Admin Menu Page */
+
+#User_Table {
+	margin-left: 420px;
+}
+
+.Dataset_Table {
+	margin-left: 10px;
+}
+
+#One_Result_Td {
+	max-width: 200ch;
+	text-overflow: auto;
+	word-wrap: normal;
+	white-space: normal;
+	font-size: 20px;
+}
+
+.Regular_Text_Td {
+	font-size: 14px;
+	max-width: 250ch;
+	white-space: pre;
+	overflow :hidden;
+	text-overflow: ellipsis;
+}
+
+#Dataset_Search_Div {
+	margin-left: 500px;
+}
+
 /* Useful, Generalized Classes */
 
 .Center {
@@ -103,4 +138,20 @@ a:hover {
 	background-color: black;
 	color: white;
 	text-decoration: none;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+td, th {
+	text-align: center;
+}
+
+td:nth-child(odd), th:nth-child(odd) {
+	background-color: lightblue;
+}
+
+td:nth-child(even), th:nth-child(even) {
+	background-color: orange;
 }

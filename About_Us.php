@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	$connection = mysqli_connect("localhost", "root", "", "Marv_Related_Information");
 ?>
 
 <html>
@@ -17,6 +18,22 @@
 			<span class="Welcome_Item"> About Us </span> 
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span> 
 			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span> 
+			
+			<?php
+				if (isset($_SESSION['Username'])) {
+					$CurrentUsername = $_SESSION['Username'];
+					$CurrentUserNumberQuery = mysqli_query($connection, "SELECT User_Number FROM `users` WHERE Username='$CurrentUsername'");
+					
+					while ($row = mysqli_fetch_assoc($CurrentUserNumberQuery)) {
+						$CurrentUserNumber = $row["User_Number"];
+						$AdminOrNot = mysqli_query($connection, "SELECT users.User_Number, user_account_type.Admin_Account FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number WHERE (user_account_type.Admin_Account != 0 && user_account_type.Users_User_Number = '$CurrentUserNumber')");
+					
+						if (mysqli_num_rows($AdminOrNot) > 0) {
+							echo "<br> <span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
+						} 	
+					}
+				}
+			?>
 			
 			<?php 
 				if (!isset($_SESSION['Username'])) { echo "
