@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `Marv_Related_Information`.`Users` (
   `Username` VARCHAR(30) NOT NULL,
   `Password` VARCHAR(200) NOT NULL,
   `Email_Address` VARCHAR(45) NOT NULL,
-  `Phone_Number` CHAR(10) NULL,
+  `Phone_Number` VARCHAR(20) NULL,
   PRIMARY KEY (`User_Number`),
   UNIQUE INDEX `User_Number_UNIQUE` (`User_Number` ASC),
   UNIQUE INDEX `Username_UNIQUE` (`Username` ASC),
