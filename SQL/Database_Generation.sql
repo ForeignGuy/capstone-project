@@ -16,7 +16,7 @@ USE `Marv_Related_Information` ;
 CREATE TABLE IF NOT EXISTS `Marv_Related_Information`.`Users` (
   `User_Number` INT(255) NOT NULL AUTO_INCREMENT,
   `Username` VARCHAR(30) NOT NULL,
-  `Password` VARCHAR(30) NOT NULL,
+  `Password` VARCHAR(200) NOT NULL,
   `Email_Address` VARCHAR(45) NOT NULL,
   `Phone_Number` CHAR(10) NULL,
   PRIMARY KEY (`User_Number`),
