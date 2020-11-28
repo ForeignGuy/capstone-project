@@ -25,7 +25,7 @@
 				$_SESSION['Username'] = $UserUsername;
 				header("Location: ../Homepage.php");
 			} else {
-				echo '<script type="text/javascript"> alert("Username or passowrd not found."); </script>';
+				echo '<script type="text/javascript"> alert("Username or password not found."); </script>';
 				echo '<script type="text/javascript"> window.location.href="../Marv_Reg.php" </script>';
 			}
 
