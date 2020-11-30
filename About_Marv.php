@@ -7,12 +7,14 @@
 	<head> 
 		<title> About Marv </title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="CSS/Main.css">
+		  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+  <link href="./assets/css/blk-design-system.css" rel="stylesheet" />
 	</head>
 	
 	<body>
 		<div id="Welcome_Bar"> <br>
-			<span id="Greetings" class="Center"> <h1> Welcome to Marv<?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?> </h1></span>
+			<span id="Greetings" class="Center"> <h1> Welcome to Marv <?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?> </h1></span>
 			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span> 
 			<span class="Welcome_Item"> About Marv </span> 
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span> 
