@@ -1,5 +1,5 @@
-Create Table dataset(News_Text text(65000), label char(4));
-LOAD DATA INFILE 'TheOmega.csv' 
+Create Table dataset(News_Text text(65000), label char(4), Bert_Int char(1));
+LOAD DATA INFILE 'newsUpdated.csv' 
 INTO TABLE dataset
   FIELDS
     TERMINATED BY ','
