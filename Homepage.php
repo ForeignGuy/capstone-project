@@ -37,7 +37,6 @@
 				}
 			?>
 			
-			
 			<?php 
 				if (!isset($_SESSION['Username'])) { echo "
 					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'> 
@@ -48,7 +47,7 @@
 							<br><br>
 							
 							<label for='Password' class='UsernameAndPassword'> Password: </label>
-							<input type='text' name='Password' id='Password' required>
+							<input type='password' name='Password' id='Password' required>
 							
 							<br>
  

@@ -47,7 +47,7 @@
 							<br><br>
 							
 							<label for='Password' class='UsernameAndPassword'> Password: </label>
-							<input type='text' name='Password' id='Password' required>
+							<input type='password' name='Password' id='Password' required>
 							
 							<br>
  

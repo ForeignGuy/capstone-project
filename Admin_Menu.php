@@ -20,6 +20,13 @@
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span> 
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span> 
 			<span Id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
+			<div class='Login_Or_Logout_Area Float_Right'> 
+				<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> 
+					<h4 id='Logout_Title'> Log Out </h4>
+					<br><br><br>
+					<input type="submit" id="Logout_Button_Admin" name="Logout" value="Log Out">
+				</form>
+			  </div>
 		</div>
         
         <div align='center'>
