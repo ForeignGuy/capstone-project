@@ -7,7 +7,9 @@
 	<head> 
 		<title> About Us </title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="CSS/Main.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
 	
 	<body>
@@ -63,6 +65,27 @@
 			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
 				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
 			</form>
+		</div>
+		
+		<br><br>
+		
+		<div id="About_Marv_Main_Text_Div">
+			<h2 id="Main_Heading" class="Center"> Who We Are </h2>
+			<p id="Main_Text"> Our Team is comprised of Oakland University undergraduates in The School of Engineering and Computer Science at Oakland University. Our group has created Marv in our Senior Capstone Project class. This project is the culmination of our times at the university, but it also shows our ability to move past our comfort zones. 
+			
+			<br><br> 
+			
+			The overall methodology that our group used to complete our project was "divide and conquer." Each member in our group has certain strengths and certain weaknesses for coding, and after recognizing these strengths and weaknesses, we've assigned tasks based on them. 
+			
+			<h4 class="Center"> Our team consists of: </h4>
+				<ol id="About_Us_List">
+					<li> Jacob Baum </li>
+					<li> Melvin Laubstein </li>
+					<li> Tovel Bowie </li>
+					<li> Murilo Delgado </li>
+					<li> Jonathan Sienkiewicz </li>
+					<li> Zaid Eliyas </li>
+				</ol>
 		</div>
 	</body>
 </html>

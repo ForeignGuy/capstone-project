@@ -21,7 +21,7 @@
 			$DatabasePassword = trim($DatabasePassword);
 			
 			$checkmatch = password_verify($UserPassword, $DatabasePassword);
-			if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `Users` WHERE (Username = '$UserUsername') AND ('$checkmatch'=1)")) > 0) {
+			if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `Users` WHERE (Username = '$UserUsername') AND (Password = '$UserPassword' OR ('$checkmatch'=1))")) > 0) {
 				$_SESSION['Username'] = $UserUsername;
 				header("Location: ../Homepage.php");
 			} else {

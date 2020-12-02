@@ -7,7 +7,9 @@
 	<head>
 		<title> Use Marv </title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="CSS/Main.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -69,10 +71,12 @@
 
 			</form>
 		</div>
-
+		
+		<br><br>
+		
 		<form method="POST" action="PHP_Actions/Use_Marv_Action.php">
-			<h2> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below, rather than just the article headline/title. </h2>
-			<input type="text" id="Headline" name="Headline" style="width:30%;" required>
+			<h2 id="Main_Text"> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below, rather than just the article headline/title. </h2>
+			<input id="Use_Marv_Box" type="text" id="Headline" name="Headline" style="width:30%;" required>
 			<input type="submit" name="submit" value="Click To See Article Validity" />
 		</form>
 	</body>

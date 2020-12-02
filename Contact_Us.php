@@ -7,7 +7,9 @@
 	<head>
 		<title> Contact Us </title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="CSS/Main.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -70,16 +72,17 @@
 		</div>
 	</body>
 	
+	<br><br>
+	
 	<footer>
 		<form method="POST" action="PHP_Actions/Contact_Us_Action.php">
 			<!-- // I'm assuming that you can only submit comments if the user is logged in. -->
 			<!-- // Otherwise there's no way to get the Users_User_Number -->
-			<label for="Feedback_Box">Any feedback about MARV or this site? Please provide it here:</label>
+			<label for="Feedback_Box" id="Feedback_Label"> Any feedback about MARV or this site? Please provide it below</label>
 			<br>
 			<textarea id="Feedback_Box" name="Feedback_Box" rows="6" cols="75" placeholder="Please write your comment here!"></textarea>
-			<br>
+			<br><br>
 			<input type='submit' id='Feedback_Submit' name='Feedback_Submit' value='Submit Feedback'>
         </form>
-
 	</footer>
 </html>

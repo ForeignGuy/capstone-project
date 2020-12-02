@@ -7,7 +7,9 @@
 	<head> 
 		<title> Homepage </title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="CSS/Main.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
 	
 	<body>
@@ -65,5 +67,32 @@
 				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
 			</form>
 		</div>
+		
+		<br><br>
+		
+		<div id="Homepage_Main_Text_Div">
+			<h2 id="Main_Heading" class="Center"> Our Site </h2>
+			
+			<p id="Main_Text"> Welcome to our site! To use our site, please click on any of the tabs above. The "About Marv" and "About Us" pages will provide you with a description of our service ("About Marv") and a description of our group ("About Us"). The "Use Marv" page will allow you to use our primary service: Marv's fake news detection service. The "Contact Us" page will allow you to provide us with feedback regarding either Marv's fake news detection service, or regarding our website in general.
+			<br><br>
+			Note: "Use Marv" and "Contact Us" will require that you login, using the boxes in the 
+			top right-hand corner, for full functionality.
+			</p>
+		</div>
+	  <script>
+		$(document).ready(function() {
+		  blackKit.initDatePicker();
+		  blackKit.initSliders();
+		});
+
+		function scrollToDownload() {
+
+		  if ($('.section-download').length != 0) {
+			$("html, body").animate({
+			  scrollTop: $('.section-download').offset().top
+			}, 1000);
+		  }
+		}
+	  </script>
 	</body>
 </html>
