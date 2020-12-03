@@ -45,7 +45,7 @@
 							<input type='text' name='Username' id='Username' required>
 							<br><br>
 							<label for='Password' class='UsernameAndPassword'> Password: </label>
-							<input type='text' name='Password' id='Password' required>
+							<input type='password' name='Password' id='Password' required>
 							<br>
 							<input type='submit' id='Login' class='Login_And_Register_Buttons Float_Right' name='Login' value='Login'>
 					</form>
