@@ -46,13 +46,6 @@ h1 {
 	font-size: 40px;
 }
 
-#Logout_Button_Admin {
-	margin-top: -60px;
-	margin-left: -10px;
-	height: 20px;
-	width: 100px;
-}
-
 /* Main Welcome Bar (Login) */
 
 .Login_Or_Logout_Area {
@@ -113,8 +106,12 @@ h1 {
 
 /* Admin Menu Page */
 
+#Admin_Menu_Tables {
+	margin-right: 30px;
+}
+
 #User_Table {
-	margin-left: 420px;
+	margin-left: 100px;
 }
 
 .Dataset_Table {
@@ -159,7 +156,7 @@ h1 {
 /* Use Marv */
 
 #Use_Marv_Box {
-	margin-left: 300px;
+	margin-left: 405px;
 }
 
 /* Headings */
@@ -204,10 +201,6 @@ a:hover {
 
 table, th, td {
 	border: 1px solid black;
-}
-
-td, th {
-	text-align: center;
 }
 
 td:nth-child(odd), th:nth-child(odd) {

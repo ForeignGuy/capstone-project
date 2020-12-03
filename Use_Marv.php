@@ -44,10 +44,8 @@
 							<label for='Username' class='UsernameAndPassword'> Username: </label>
 							<input type='text' name='Username' id='Username' required>
 							<br><br>
-							
 							<label for='Password' class='UsernameAndPassword'> Password: </label>
-							<input type='password' name='Password' id='Password' required>
-							
+							<input type='text' name='Password' id='Password' required>
 							<br>
 							<input type='submit' id='Login' class='Login_And_Register_Buttons Float_Right' name='Login' value='Login'>
 					</form>
@@ -76,10 +74,21 @@
 		
 		<br><br>
 		
-		<form method="POST" action="PHP_Actions/Use_Marv_Action.php">
-			<h2 id="Main_Text"> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below, rather than just the article headline/title. </h2>
-			<input id="Use_Marv_Box" type="text" id="Headline" name="Headline" style="width:30%;" required>
-			<input type="submit" name="submit" value="Click To See Article Validity" />
-		</form>
+		<form method="POST" action="">
+            <h2 id="Main_Text"> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below, rather than just the article headline/title. </h2>
+            <input id="Use_Marv_Box" type="text" id="Headline" name="Headline" style="width:30%;" required>
+            <input type="submit" name="Use_Marv_Input" id="Use_Marv_Input" value="Click To See Article Validity" />
+        </form>
+        
+        <div align="center">
+        <?php
+            if(isset($_POST['Use_Marv_Input'])) {
+                $UserInput = $_POST['Headline'];
+                $command = escapeshellcmd("MarvTest.py $UserInput");
+                $output = shell_exec($command);
+                echo "<textarea rows='8', cols='100', class='Center', disabled>'$output'</textarea>";
+            }
+        ?>
+        </div>
 	</body>
 </html>
