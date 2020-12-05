@@ -114,16 +114,12 @@ h1 {
 	margin-left: 100px;
 }
 
-.Dataset_Table {
-	margin-left: 10px;
+#User_Table_Title {
+	margin-left: -200px;
 }
 
-#One_Result_Td {
-	max-width: 200ch;
-	text-overflow: auto;
-	word-wrap: normal;
-	white-space: normal;
-	font-size: 20px;
+#User_Table_Form {
+	margin-left: 200px;
 }
 
 .Regular_Text_Td {
@@ -135,7 +131,32 @@ h1 {
 }
 
 #Dataset_Search_Div {
-	margin-left: 500px;
+	margin-left: 300px;
+}
+
+#Dataset_Table_Main {
+	margin-left: 20px;
+}
+
+.Dataset_Table_Main2 {
+	margin-left: 30px;
+	width: 95%;
+}
+
+#Dataset_Table_Number {
+	margin-left: 10px;
+}
+
+#Dataset_Table_Text {
+	margin-left: -100px;
+}
+
+.Dataset_Table_Text2 {
+	margin-left: 10px;
+}
+
+.Dataset_Table_Main2_Heading {
+	margin-left: -290px;
 }
 
 /*Contact Us */
@@ -201,6 +222,30 @@ a:hover {
 
 table, th, td {
 	border: 1px solid black;
+}
+
+table {
+	text-align: center;
+	font-size: 16px;
+}
+
+td {
+	text-align: left;
+	line-height: 14px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 95%;
+}
+
+td:nth-child(1) {
+	text-align: center;
+	width: 100px;
+}
+
+td:nth-child(2) {
+	max-width: 500px;
 }
 
 td:nth-child(odd), th:nth-child(odd) {

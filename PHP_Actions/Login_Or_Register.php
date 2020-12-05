@@ -9,7 +9,6 @@
 		$UserPassword = null;
 	}
 	
-	
 	if (isset($_POST['Login'])) {
 		$UserUsername = $_POST['Username'];
 		$UserPassword = $_POST['Password'];
