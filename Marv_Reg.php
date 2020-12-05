@@ -7,13 +7,15 @@
 		<title> About Marv </title>
 		<title> Registration </title>
 		<meta charset="utf-8">
-		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
-		<link href="./css/blk-design-system.css" rel="stylesheet" />
+		  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+  <link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div id="Welcome_Bar"> <br>
-			<span id="Greetings" class="Center"> <h1> Welcome to Marv<?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?> </h1></span>
+			<h1 class="ml3">Welcome to Marv</h1>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+			<span id="Greetings" class="Center"> <?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span>
 			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
       <span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
@@ -27,10 +29,13 @@
 			if (!isset($_SESSION['Username'])) { echo "
 				<form method='POST' action='PHP_Actions/Login_Or_Register.php'>
 					<br><h1> Sign up</h1> <br><br>
+					<i class='fa fa-envelope icon'></i>
 						<input placeholder='Email Address'  type='email' id='Email_Address' name='Email_Address' size='75' required >
 						<br><br>
+						 <i class='fa fa-user icon'></i>
 						<input placeholder='Username' name= 'Username' type='text' id='Username' size='75' required>
 						<br><br>
+						<i class='fa fa-lock icon'></i>
 						<input placeholder='Password' type='password' name= 'Password' id='Password' size='75' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters' required>
 						<div align= 'center'>
 						<input type='checkbox' onclick='Showpassword()'> show password
@@ -42,6 +47,7 @@
 						  <p id='length' class='invalid'>Minimum <b>8 characters</b></p>
 						</div>
 						<br><br>
+						<i class='fa fa-phone icon'></i>
 						<input placeholder=Phone Number type='tel'  id='Phone_Number' name='Phone_Number' size='75' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' title= 'please follow this format, xxx-xxx-xxxx'
             required>
 						<br><br><br>
@@ -77,6 +83,19 @@
 	  padding: 10px 35px;
 	  font-size: 18px;
 	}
+
+	.ml3{
+		text-align: center;
+
+	}
+
+	.icon {
+  padding: 6px;
+  color: white;
+  min-width: 10px;
+  text-align: center;
+}
+
 
 	/* Add a green text color and a checkmark when the requirements are right */
 	.valid {
@@ -172,4 +191,22 @@ function Showpassword() {
 		x.type = "password";
 	}}
 
+	// Wrap every letter in a span
+	var textWrapper = document.querySelector('.ml3');
+	textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+	anime.timeline({loop: true})
+	  .add({
+	    targets: '.ml3 .letter',
+	    opacity: [0,1],
+	    easing: "easeInOutQuad",
+	    duration: 2250,
+	    delay: (el, i) => 150 * (i+1)
+	  }).add({
+	    targets: '.ml3',
+	    opacity: 0,
+	    duration: 1000,
+	    easing: "easeOutExpo",
+	    delay: 1000
+	  });
 </script>
