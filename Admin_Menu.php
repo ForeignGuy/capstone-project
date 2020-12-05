@@ -111,8 +111,9 @@
 					echo "<h3> Use this box to search the table based on an article's content/its text. </h3>";
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
+					
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -160,7 +161,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -218,7 +220,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -293,7 +296,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -337,7 +341,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -365,7 +370,7 @@
 					echo "<h3 class='Center'> Dataset Table </h3>";
 					echo "<table class='Dataset_Table_Text' cellspacing='0'>";
 					echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";			
-					while (($TextQueryData = mysqli_fetch_assoc($SearchByTextQuery))) {
+					while ($TextQueryData = mysqli_fetch_assoc($SearchByTextQuery)) {
 						echo "<tr> <td>" . $TextQueryData['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $TextQueryData['News_Text'] . "</td> <td>" . $TextQueryData['label'] ."</td> </tr>";
 					}
 					
@@ -394,7 +399,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -452,7 +458,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -516,7 +523,7 @@
 		
 		/** SEARCH BY LABEL START **/
 		
-		if (isset($_POST['Data_Search_By_Label_Button'])) {
+		if (isset($_POST['Dataset_Search_By_Label_Real'])) {
 			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
@@ -526,7 +533,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -543,13 +551,16 @@
 			echo "</form>";
 					
 			echo "<br><br><br><br><br>";
-			$SearchByLabelQuery = mysqli_query($connection, "SELECT * FROM `dataset` WHERE label='$ArticleLabel' LIMIT 51");
+			$_SESSION['Label'] = "REAL";
+			$SearchByLabelQuery = mysqli_query($connection, "SELECT * FROM `dataset` WHERE label='" . $_SESSION['Label'] . "' LIMIT 51");
 			
-			if (mysqli_fetch_assoc($SearchByLabelQuery)) {
+			if (mysqli_fetch_assoc($SearchByLabelQuery)) {				
+				$_SESSION['Label'] = "REAL";
+				$SearchByLabelQuery = mysqli_query($connection, "SELECT * FROM `dataset` WHERE label='" . $_SESSION['Label'] . "' LIMIT 51");
 				echo "<h3 class='Center'> Dataset Table </h3>";
 				echo "<table id='Dataset_Table_Label' cellspacing='0'>";
 				echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
-				while (($LabelQueryData = mysqli_fetch_assoc($SearchByLabelQuery))) {
+				while ($LabelQueryData = mysqli_fetch_assoc($SearchByLabelQuery)) {
 					echo "<tr> <td>" . $LabelQueryData['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $LabelQueryData['News_Text'] . "</td> <td>" . $LabelQueryData['label'] ."</td> </tr>";
 				}
 				
@@ -563,10 +574,64 @@
 			}
 			
 			$_SESSION['Counter'] = 0;	
-			$_SESSION['Label'] = $ArticleLabel;
 		}
 		
+		if (isset($_POST['Dataset_Search_By_Label_Fake'])) {
+			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+				echo "<div id='Dataset_Search_Div'>"; 
+					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
+					echo "<label for='Dataset_Search_By_Number'> Search By Number: </label> <input type='text' id='Dataset_Search_By_Number' name='Dataset_Search_By_Number' value=''> </input> <button id='Data_Search_By_Number_Button' name='Data_Search_By_Number_Button' value='Data_Search_By_Number_Button'> Search Dataset By Number </button>"; 
+					echo "<br><br>";
+					echo "<h3> Use this box to search the table based on an article's content/its text. </h3>";
+					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
+					echo "<br><br>";
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
+					
+					echo "<br><br><br><br><br>";
+					
+					echo "<h3> Use this box to add new articles to the dataset. </h3>";
+					echo "<label for='Add_Text'> News Article Text To Add: </label> <input type='text' id='Add_Text' name='Add_Text' value=''> </input>
+					<label for='Add_Label'> News Article Label (REAL or FAKE): </label> <input type='text' id='Add_Label' name='Add_Label' value=''> </input> <br>
+					<button id='Add_To_Dataset_Button' name='Add_To_Dataset_Button' value='Add_To_Dataset_Button'> Add Article To Database </button>"; 
+					
+					echo "<br><br><br><br><br>";
+					
+					echo "<h3> Use this box to delete entries from the database. </h3>";
+					echo "<label for='Dataset_Delete_News'> Article Number for Deletion: </label> <input type='text' id='Dataset_Delete_News' name='Dataset_Delete_News' value=''> </input> <button id='Dataset_Delete_News_Button' name='Dataset_Delete_News_Button' value='Dataset_Delete_News_Button'> Delete Article With This Number </button>"; 
+					echo "</div>";
+				echo "</form>";
+						
+				echo "<br><br><br><br><br>";
+				$_SESSION['Label'] = "FAKE";
+				$SearchByLabelQuery = mysqli_query($connection, "SELECT * FROM `dataset` WHERE label='" . $_SESSION['Label'] . "' LIMIT 51");
+				
+				if (mysqli_fetch_assoc($SearchByLabelQuery)) {				
+					$_SESSION['Label'] = "FAKE";
+					$SearchByLabelQuery = mysqli_query($connection, "SELECT * FROM `dataset` WHERE label='" . $_SESSION['Label'] . "' LIMIT 51");
+					echo "<h3 class='Center'> Dataset Table </h3>";
+					echo "<table id='Dataset_Table_Label' cellspacing='0'>";
+					echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
+					while ($LabelQueryData = mysqli_fetch_assoc($SearchByLabelQuery)) {
+						echo "<tr> <td>" . $LabelQueryData['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $LabelQueryData['News_Text'] . "</td> <td>" . $LabelQueryData['label'] ."</td> </tr>";
+					}
+					
+					echo "</table>";
+					
+					echo "<form method='POST' action=''>";
+						echo "<button id='Show_Next_50_Label' name='Show_Next_50_Label' value='Show_Next_50_Label'> Show Next 50 Results </button>";
+					echo "</form>";
+				} else {
+					echo "<h1> No results to show. </h1>";
+				}
+				
+				$_SESSION['Counter'] = 0;	
+			
+			}
+		
 		// Next 50 Results
+		
 		if(isset($_POST['Show_Next_50_Label'])) {
 			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
@@ -577,7 +642,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
@@ -626,6 +692,7 @@
 		}
 		
 		// Last 50 Results
+		
 		if(isset($_POST['Show_Last_50_Label'])) {
 			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
@@ -636,7 +703,8 @@
 					echo "<label for='Dataset_Search_By_Text'> Search By Text: </label> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Search_Dataset_By_Text_Button' name='Search_Dataset_By_Text_Button' value='Search_Dataset_By_Text_Button'> Search Dataset By Text </button>"; 
 					echo "<br><br>";
 					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
-					echo "<label for='Dataset_Search_By_Label'> Search By Label: </label> <input type='text' id='Dataset_Search_By_Label' name='Dataset_Search_By_Label' value=''> </input> <button id='Data_Search_By_Label_Button' name='Data_Search_By_Label_Button' value='Search_Dataset_By_Label_Button'> Search Dataset By Label </button>"; 
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
 					
 					echo "<br><br><br><br><br>";
 					
