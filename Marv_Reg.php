@@ -1,34 +1,37 @@
 <?php
 	session_start();
+	$connection = mysqli_connect("localhost", "root", "", "Marv_Related_Information");
 ?>
+
 <html>
 	<head>
-
-		<title> About Marv </title>
-		<title> Registration </title>
+		<title> Homepage </title>
 		<meta charset="utf-8">
-		  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
-  <link href="./css/blk-design-system.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
+
 	<body>
 		<div id="Welcome_Bar"> <br>
-			<h1 class="ml3">Welcome to Marv</h1>
+			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-			<span id="Greetings" class="Center"> <?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span>
-			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
-      <span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
+			<span class="Welcome_Item"> Homepage </span>
+			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
-			<span Id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
+			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
+			
+			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
+				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
+			</form>
 		</div>
-
 
         <div align='center'>
         <?php
 			if (!isset($_SESSION['Username'])) { echo "
 				<form method='POST' action='PHP_Actions/Login_Or_Register.php'>
-					<br><h1> Sign up</h1> <br><br>
+					<h1> Sign up</h1>
 					<i class='fa fa-envelope icon'></i>
 						<input placeholder='Email Address'  type='email' id='Email_Address' name='Email_Address' size='75' required >
 						<br><br>
@@ -48,12 +51,11 @@
 						</div>
 						<br><br>
 						<i class='fa fa-phone icon'></i>
-						<input placeholder=Phone Number type='tel'  id='Phone_Number' name='Phone_Number' size='75' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' title= 'please follow this format, xxx-xxx-xxxx'
-            required>
-						<br><br><br>
+						<input placeholder=Phone Number type='tel'  id='Phone_Number' name='Phone_Number' size='75' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' title= 'please follow this format, xxx-xxx-xxxx' required>
+						<br>
 						<button style='width: 100; height: 35; margin-right:-10px;' type='submit' id='Register_Submit' name='Register_Submit' value='Register'> Register </button>
 						<div class='container signin'>
-						    <p>Already have an account? <a href='Homepage.php'>login</a>.</p>
+						   <br> <p>Already have an account?  <a href='Homepage.php'>Login</a>.</p>
 
 				</form>";
 			} else {

@@ -7,9 +7,9 @@
 	<head>
 		<title> Homepage </title>
 		<meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
-  <link href="./css/blk-design-system.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -21,7 +21,7 @@
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
 			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
-
+			
 			<?php
 				if (isset($_SESSION['Username'])) {
 					$CurrentUsername = $_SESSION['Username'];
@@ -37,8 +37,6 @@
 					}
 				}
 			?>
-
-
 			<?php
 				if (!isset($_SESSION['Username'])) { echo "
 					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>
@@ -46,31 +44,28 @@
 						<i class='fa fa-user icon'></i>
 					 <input placeholder='Username' name= 'Username' type='text' id='Username'required>
 					 <br><br>
-
 					 <input placeholder='Password' type='password' name= 'Password' id='Password' required>
 					 <i class='fa fa-lock icon'></i>
-
 							<br>
-
 							<input type='submit' id='Login' class='Login_And_Register_Buttons Float_Right' name='Login' value='Login'>
 					</form>
 					<br>
-					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>";
-
+					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
+					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
-							<h4 id='Logout_Title'> Log Out </h4>
-						  </div>";
-				}
+							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
+								<h4 id='Logout_Title'> Log Out </h4>
+								<br><br><br><br><br>
+								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
+							</form>";
+				} 
 			?>
-			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
-				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
-			</form>
 		</div>
+		<br><br>
 		
 		<div id="Homepage_Main_Text_Div">
 			<h2 id="Main_Heading" class="Center"> Our Site </h2>
-			
 			<p id="Main_Text"> Welcome to our site! To use our site, please click on any of the tabs above. The "About Marv" and "About Us" pages will provide you with a description of our service ("About Marv") and a description of our group ("About Us"). The "Use Marv" page will allow you to use our primary service: Marv's fake news detection service. The "Contact Us" page will allow you to provide us with feedback regarding either Marv's fake news detection service, or regarding our website in general.
 			<br><br>
 			Note: "Use Marv" and "Contact Us" will require that you login, using the boxes in the 
@@ -103,7 +98,7 @@ position: relative;
 }
 .icon {
 position: absolute;
-right: 215;
+right: 220;
 padding: 6px;
 color: white;
 text-align: right;

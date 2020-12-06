@@ -48,6 +48,14 @@ h1 {
 
 /* Main Welcome Bar (Login) */
 
+#Login {
+	margin-right: -180px;
+	margin-top: 10px;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+}
+
 .Login_Or_Logout_Area {
 	margin-right: 20px;
 	margin-top: -90px;
@@ -65,31 +73,28 @@ h1 {
 	text-align: right;
 }
 
-.Login_And_Register_Buttons {
-	margin-right: 10px;
-	margin-top: 10px;
-	width: 70px;
-	margin-left: 5px;
-}
-
 #Logout_Title {
-	margin-right: 120px;
-	margin-top: 70px;
+	margin-top: 35px;
+	margin-left: 7px;
 	font-size: 20px;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
 #Logout_Button {
-	margin-top: -60px;
-	margin-right: -87px;
+	margin-top: -110px;
+	margin-right: 60px;
 	height: 30px;
 	width: 100px;
 }
 
 #Register_Button {
-	margin-top: 6.25px;
-	margin-right: -230px;
+	margin-top: 22px;
+	margin-right: -225px;
+	height: 30px;
+	width: 80px;
+	float: right;
+	border-radius: 5px;
 }
 
 #Register_Submit {
@@ -97,14 +102,27 @@ h1 {
 	margin-right: -230px;
 }
 
+#Reset_Password_Link {
+	margin-top: -10px;
+	margin-left: 1140px;
+}
+
 /* About Us */
+
+#About_Us_Heading {
+	margin-left: -80px;
+}
 
 #About_Us_List {
 	display: inline-block;
-	margin-left: 590px;
+	margin-left: 530px;
 }
 
 /* Admin Menu Page */
+
+#Admin_View_Users {
+	margin-left: -40px;
+}
 
 #Admin_Menu_Tables {
 	margin-right: 30px;
@@ -115,11 +133,29 @@ h1 {
 }
 
 #User_Table_Title {
-	margin-left: -200px;
+	margin-left: 0px;
 }
 
 #User_Table_Form {
-	margin-left: 200px;
+	margin-left: -100px;
+}
+
+#Users_Div {
+	margin-left: 450px;
+}
+
+#User_Input_Label {
+	margin-top: 20px;
+}
+
+#Delete_User {
+	margin-top: -28px;
+	margin-right: 520px;
+}
+
+#Delete_User_Button {
+	margin-top: -28px;
+	margin-left: 450px;
 }
 
 .Regular_Text_Td {
@@ -130,8 +166,139 @@ h1 {
 	text-overflow: ellipsis;
 }
 
-#Dataset_Search_Div {
+.Number_Label { 
+	margin-left: 150px;
+}
+
+#Dataset_Search_By_Number {
+	margin-top: -30px;
+	margin-right: 590px;
+}
+
+#Dataset_Search_By_Number_Button {
+	margin-top: -30px;
+	margin-left: 480px;
+}
+
+.Text_Label {
+	margin-left: 180px;
+}
+
+#Dataset_Search_By_Text {
+	margin-top: -30px;
+	margin-right: 590px;
+}
+
+#Dataset_Search_By_Text_Button {
+	margin-top: -30px;
+	margin-left: 480px;
+}
+
+.Dataset_Search_By_Label_Real { 
+	margin-left: 150px;
+}
+
+.Dataset_Search_By_Label_Fake {
+	margin-left: 200px;
+}
+
+/* Label for input box */
+
+.New_Article_Label {
+	margin-top: -25px;
+	margin-left: 400px;
+}
+
+.No_Results {
+	margin-left: 500px;
+}
+
+/* Main Buttons */ 
+
+#Show_Next_50_Main {
+	margin-left: 380px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#Show_Last_50_Main {
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* Text Buttons */
+
+#Show_Next_50_Text {
+	margin-left: 380px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#Show_Last_50_Text {
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;	
+}
+
+/* Label Buttons */
+
+#Show_Next_50_Label {
+	margin-left: 380px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#Show_Last_50_Label {
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#Special_Show_Next {
+	margin-left: 580px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#Special_Show_Last {
+	margin-left: 563px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* Input boxes */
+
+#Add_Text {
+	margin-top: -30px;
+	margin-right: 700px;
+}
+
+#Add_Label {
+	margin-top: -30px;
+	margin-right: 245px;
+}
+
+#Add_To_Dataset_Button {
 	margin-left: 300px;
+}
+
+.Delete_Label {
+	margin-left: 90px;
+}
+
+#Dataset_Delete_News {
+	margin-top: -30px;
+	margin-right: 590px;
+}
+
+#Dataset_Delete_News_Button {
+	margin-top: -30px;
+	margin-left: 480px;
+}
+
+#Dataset_Search_Div {
+	margin-left: 250px;
 }
 
 #Dataset_Table_Main {
@@ -159,31 +326,45 @@ h1 {
 	margin-left: -290px;
 }
 
-/*Contact Us */
+/* Use Marv */
 
-#Feedback_Box {
-	margin-left: 400px;
+#Use_Marv_Heading {
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
-#Feedback_Label {
-	margin-left: 450px;
+#Headline {
+	margin-left: 200px;
+}
+
+#Headline_Submit {
+	margin-right: 600px;
+	height: 25px;
+}
+
+#Output_Text_Area {
+	margin-left: -70px;
+}
+
+/*Contact Us */
+
+#Feedback_Heading {
+	margin-right: 80px;
 	color: #e3e3e3
 }
 
-#Feedback_Submit {
-	margin-left: 600px;
+#Feedback_Box {
+	margin-left: 320px;
 }
 
-/* Use Marv */
-
-#Use_Marv_Box {
-	margin-left: 405px;
+#Feedback_Submit {
+	margin-right: 660px;
 }
 
 /* Headings */
 
 #Main_Heading {
-	margin-left: 230px;
+	margin-left: 60px;
 }
 
 /* Text */

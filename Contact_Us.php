@@ -5,11 +5,11 @@
 
 <html>
 	<head>
-		<title> Contact Us </title>
+		<title> Homepage </title>
 		<meta charset="utf-8">
-		  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
-  <link href="./css/blk-design-system.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<link href="./css/blk-design-system.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -21,7 +21,7 @@
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
 			<span id="Final_Welcome_Item"> Contact Us </span>
-
+			
 			<?php
 				if (isset($_SESSION['Username'])) {
 					$CurrentUsername = $_SESSION['Username'];
@@ -38,51 +38,60 @@
 				}
 			?>
 
+
 			<?php
 				if (!isset($_SESSION['Username'])) { echo "
 					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>
-						<h4 id='Login_Title'> Sign-in/Register</h4>
+						<h4 id='Login_Title'> Sign-in/Register </h4>
 						<i class='fa fa-user icon'></i>
 					 <input placeholder='Username' name= 'Username' type='text' id='Username'required>
 					 <br><br>
-
 					 <input placeholder='Password' type='password' name= 'Password' id='Password' required>
 					 <i class='fa fa-lock icon'></i>
-
 							<br>
-
 							<input type='submit' id='Login' class='Login_And_Register_Buttons Float_Right' name='Login' value='Login'>
 					</form>
 					<br>
-					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>";
+					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
+					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>";
+					echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';					
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
-							<h4 id='Logout_Title'> Log Out </h4>
-						  </div>";
-				}
-
-			if(!isset($_SESSION['Username'])) {
-				echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';
-					 exit();
-           }
+							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
+								<h4 id='Logout_Title'> Log Out </h4>
+								<br><br><br><br><br>
+								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
+							</form>
+							</div>";
+						echo "<br><br><br>
+							<footer>
+								<form method='POST' action='PHP_Actions/Contact_Us_Action.php'>
+									<h3 id='Feedback_Heading' class='Center'> Any feedback about MARV or this site? Please provide it below. </h3>
+									<textarea id='Feedback_Box' name='Feedback_Box' rows='6' cols='75' placeholder='Please write your comment here!'></textarea>
+									<br><br>
+									<input type='submit' id='Feedback_Submit' name='Feedback_Submit' value='Submit Feedback'>
+								</form>
+						</footer>";
+				} 
 			?>
-			<form id="Logout_Form" class="Float_Right" method="POST" action="PHP_Actions/Logout.php"> <br><br><br><br>
-				<?php if (isset($_SESSION['Username'])) { echo "<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>"; } ?>
-			</form>
 		</div>
-	</body>
+</html>
+  <script>
+    $(document).ready(function() {
+      blackKit.initDatePicker();
+      blackKit.initSliders();
+    });
 
-	<footer>
-		<form method="POST" action="PHP_Actions/Contact_Us_Action.php">
-			<!-- // I'm assuming that you can only submit comments if the user is logged in. -->
-			<!-- // Otherwise there's no way to get the Users_User_Number -->
-			<label for="Feedback_Box">Any feedback about MARV or this site? Please provide it here:</label>
-			<br>
-			<textarea id="Feedback_Box" name="Feedback_Box" rows="6" cols="75" placeholder="Please write your comment here!"></textarea>
-			<br>
-			<input type='submit' id='Feedback_Submit' name='Feedback_Submit' value='Submit Feedback'>
-        </form>
-	</footer>
+    function scrollToDownload() {
+
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+  </script>
+	</body>
 </html>
 
 <style>
@@ -93,7 +102,7 @@ position: relative;
 }
 .icon {
 position: absolute;
-right: 215;
+right: 220;
 padding: 6px;
 color: white;
 text-align: right;
