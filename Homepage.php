@@ -51,21 +51,30 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>";
+					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>
+					
+					</div>	
+					<br><br>
+		
+					<div id='Homepage_Main_Text_Div'>
+						<h2 id='Main_Heading' class='Center'> Our Site </h2>";	
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
 							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
-							</form>";
+							</form>
+							
+						</div>
+						
+						<br><br>
+		
+						<div id='Homepage_Main_Text_Div'>
+							<h2 id='Main_Heading_Logged_In' class='Center'> Our Site </h2>";		
 				} 
 			?>
-		</div>
-		<br><br>
-		
-		<div id="Homepage_Main_Text_Div">
-			<h2 id="Main_Heading" class="Center"> Our Site </h2>
+
 			<p id="Main_Text"> Welcome to our site! To use our site, please click on any of the tabs above. The "About Marv" and "About Us" pages will provide you with a description of our service ("About Marv") and a description of our group ("About Us"). The "Use Marv" page will allow you to use our primary service: Marv's fake news detection service. The "Contact Us" page will allow you to provide us with feedback regarding either Marv's fake news detection service, or regarding our website in general.
 			<br><br>
 			Note: "Use Marv" and "Contact Us" will require that you login, using the boxes in the 

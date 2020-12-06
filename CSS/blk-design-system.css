@@ -364,7 +364,11 @@ h1 {
 /* Headings */
 
 #Main_Heading {
-	margin-left: 60px;
+	margin-left: -100px;
+}
+
+#Main_Heading_Logged_In {
+	margin-left: 120px;
 }
 
 /* Text */

@@ -51,22 +51,28 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>";
+					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>
+				</div>
+				<br><br>
+				
+				<div id='About_Marv_Main_Text_Div'>
+					<h2 id='Main_Heading' class='Center'> What Marv Is </h2>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
 							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
-							</form>";
+							</form>
+					</div>
+					
+				</div>
+				<br><br>
+				<div id='About_Marv_Main_Text_Div'>
+					<h2 id='Main_Heading_Logged_In' class='Center'> What Marv Is </h2>";
 				} 
 			?>
 		</div>
-		
-		<br><br>
-		
-		<div id="About_Marv_Main_Text_Div">
-			<h2 id="Main_Heading" class="Center"> What Marv Is </h2>
 			<p id="Main_Text"> Throughout much of human history, from town criers to news on the internet, humans have depended on some form of organized news to provide them with a microscale and macroscale understanding of the world around them. As no individual is humanly capable of reaching these understandings without some form of news to educate them, humanity has necessarily become dependent on the news. This dependence on the news necessarily and heavily influences the feelings of people about any
             particular subject, in some cases going so far as to spur people to action. This dependence, coupled with this personal influence, is what has made the notion of "fake news" so dangerous. Now, fake news isn't simply going to "go away," and its harmful influence over the populace cannot be completely eradicated. However, it was this problem that sparked the idea for Marv: "What if a service could be given that would assist the average person in determining whether or not a news article is fake, thereby mitigating the effects of fake news over the populace?" That service, Marv, was born.
 			
