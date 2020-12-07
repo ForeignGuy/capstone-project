@@ -244,6 +244,21 @@ h1 {
 	margin-left: 500px;
 }
 
+/* User Buttons */
+
+#Show_Next_50_Users {
+	margin-left: 380px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+#Show_Last_50_Users {
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 /* Main Buttons */ 
 
 #Show_Next_50_Main {

@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	$connection = mysqli_connect("localhost", "root", "", "Marv_Related_Information");
+	error_reporting(0);
 ?>
 
 <html>
@@ -38,7 +39,7 @@
 						<input type='submit' id='Login' class='Login_And_Register_Buttons' name='Login' value='Login'>
 					</form>
 					
-					<form>
+					<form method='POST' action=''>
 						<button id='Register_Button' class='Login_And_Register_Buttons' name='Register_Button' value='Register'> <a href='Marv_Reg.php'>  Register  </a> </button>
 					</form>";
 					
@@ -125,7 +126,7 @@
 		
 		/** USER TABLES START **/
 		if (isset($_POST['Admin_View_Users'])) {
-			$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+			$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 6");
 			echo "<form id='User_Table_form' method='POST' action=''>";
 				echo "<br>";
 				echo "<div id='Users_Div'>";
@@ -141,6 +142,43 @@
 				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
 				echo "<table id='User_Table' cellspacing='0'>";
 					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 6");
+				while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+
+					echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+				}
+			
+				echo "</table>";
+			echo "</form>";	
+			
+			echo "<form method='POST' action=''>";
+				echo "<button id='Show_Next_50_Users' name='Show_Next_50_Users' value='Show_Next_50_Users'> Show Next 50 Results </button>";
+			echo "</form>";
+			$_SESSION['Counter'] = 0;	
+		}
+		
+		// User Table next 50 results
+		if (isset($_POST['Show_Next_50_Users'])) {
+			$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 6 OFFSET " . ($_SESSION['Counter'] + 5) . "");
+			echo "<form id='User_Table_form' method='POST' action=''>";
+				echo "<br>";
+				echo "<div id='Users_Div'>";
+					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+					
+					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+					
+					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+				
+					echo "<br><br><br>";
+				
+				echo "</div>";
+
+			$ViewUserTableInDatabase2 = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+			$CheckTableData2 = mysqli_num_rows($ViewUserTableInDatabase2);
+			if ($_SESSION['Counter'] <= $CheckTableData2 AND mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+				echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
 				
 					while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
 						echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
@@ -148,6 +186,80 @@
 				
 				echo "</table>";
 			echo "</form>";	
+			
+			echo "<br><br>";
+			
+			echo "<form method='POST' action=''>";
+				echo "<button id='Show_Next_50_Users' name='Show_Next_50_Users' value='Show_Next_50_Users'> Show Next 50 Results </button>";
+				echo "<button id='Show_Last_50_Users' name='Show_Last_50_Users' value='Show_Last_50_Users'> Show Previous 50 Results </button>";
+			echo "</form>";
+			} else {				
+				echo "<form method='POST' action=''>";
+					echo "<h1 class='No_Results'> No results to show. </h1>";
+					echo "<button id='Special_Show_Last' name='Show_Last_50_Users' value='Show_Last_50_Users'> Show Previous 50 Results </button>";
+				echo "</form>";
+			}
+			$_SESSION['Counter'] = $_SESSION['Counter'] + 5;	
+		}
+		
+		// User Table last 50 results
+		if (isset($_POST['Show_Last_50_Users'])) {
+			$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 6 OFFSET " . ($_SESSION['Counter'] - 5) . "");
+			echo "<form id='User_Table_form' method='POST' action=''>";
+				echo "<br>";
+				echo "<div id='Users_Div'>";
+					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+					
+					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+					
+					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+				
+					echo "<br><br><br>";
+				
+				echo "</div>";
+
+			
+			$CheckTableData2 = mysqli_num_rows($ViewUserTableInDatabase);
+			if ($_SESSION['Counter'] >= 6 AND mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+				echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+				
+					while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+						echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+					}
+				
+				echo "</table>";
+			echo "</form>";	
+			echo "<br><br>";
+			echo "<form method='POST' action=''>";
+				echo "<button id='Show_Next_50_Users' name='Show_Next_50_Users' value='Show_Next_50_Users'> Show Next 50 Results </button>";
+				echo "<button id='Show_Last_50_Users' name='Show_Last_50_Users' value='Show_Last_50_Users'> Show Previous 50 Results </button>";
+			echo "</form>";			
+			} else if ($_SESSION['Counter'] >= 0) {
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 6");
+				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+				echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 6");
+				while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+
+					echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+				}
+			
+				echo "</table>";
+			
+			echo "<form method='POST' action=''>";
+				echo "<button id='Show_Next_50_Users' name='Show_Next_50_Users' value='Show_Next_50_Users'> Show Next 50 Results </button>";
+			echo "</form>";
+			$_SESSION['Counter'] = 5;	
+			} else {
+				echo "<form method='POST' action=''>";
+					echo "<h1 class='No_Results'> No results to show. </h1>";
+					echo "<button id='Special_Show_Last' name='Show_Next_50_Users' value='Show_Next_50_Users'> Show Previous 50 Results </button>";
+				echo "</form>";
+			}
+			$_SESSION['Counter'] = $_SESSION['Counter'] - 5;	
 		}
 		
 		// Search for Users Based on Their User Number
@@ -178,7 +290,7 @@
 				echo "</form>";	
 			} else {
 				echo '<script type="text/javascript"> alert("There is no user with that number! Showing full table results."); </script>'; 
-				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 5");
 				echo "<form id='User_Table_form' method='POST' action=''>";
 					echo "<br>";
 					echo "<div id='Users_Div'>";
@@ -234,7 +346,7 @@
 			} else {
 				echo '<script type="text/javascript"> alert("No user has that username! Showing full table results."); </script>';
 				
-				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 5");
 				echo "<form id='User_Table_form' method='POST' action=''>";
 				echo "<br>";
 				echo "<div id='Users_Div'>";
@@ -267,7 +379,7 @@
 				mysqli_query($connection, "DELETE FROM `users` WHERE User_Number='$DeleteUser'");
 				echo '<script type="text/javascript"> alert("User successfully deleted. Showing full table results."); </script>';
 			
-				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 5");
 				echo "<form id='User_Table_form' method='POST' action=''>";
 				echo "<br>";
 				echo "<div id='Users_Div'>";
@@ -294,7 +406,7 @@
 			} else {
 				echo '<script type="text/javascript"> alert("There is no user with that number! Showing full table results."); </script>';
 				
-				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 5");
 				echo "<form id='User_Table_form' method='POST' action=''>";
 				echo "<br>";
 				echo "<div id='Users_Div'>";
@@ -321,6 +433,24 @@
 		}
 		
 		/** USER TABLES END **/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -875,7 +1005,7 @@
 				echo "<h3 class='Center'> Dataset Table </h3>";
 				echo "<table id='Dataset_Table_Label' cellspacing='0'>";
 				echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
-				while (($LabelQueryData = mysqli_fetch_assoc($SearchByLabelQuery))) {
+				while ($LabelQueryData = mysqli_fetch_assoc($SearchByLabelQuery)) {
 					echo "<tr> <td>" . $LabelQueryData['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $LabelQueryData['News_Text'] . "</td> <td>" . $LabelQueryData['label'] ."</td> </tr>";
 				}
 				
@@ -929,7 +1059,7 @@
 				echo "<h3 class='Center'> Dataset Table </h3>";
 				echo "<table id='Dataset_Table_Label' cellspacing='0'>";
 				echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
-				while (($LabelQueryData = mysqli_fetch_assoc($SearchByLabelQuery))) {
+				while ($LabelQueryData = mysqli_fetch_assoc($SearchByLabelQuery)) {
 					echo "<tr> <td>" . $LabelQueryData['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $LabelQueryData['News_Text'] . "</td> <td>" . $LabelQueryData['label'] ."</td> </tr>";
 				}
 				
@@ -939,9 +1069,8 @@
 					echo "<button id='Show_Next_50_Label' name='Show_Next_50_Label' value='Show_Next_50_Label'> Show Next 50 Results </button>";
 					echo "<button id='Show_Last_50_Label' name='Show_Last_50_Label' value='Show_Last_50_Label'> Show Previous 50 Results </button>";
 				echo "</form>";
-				
+
 			} else if ($_SESSION['Counter'] > 0) {
-				echo $_SESSION['Counter'];
 				echo "<h3 class='Center'> Dataset Table </h3>";
 				echo "<table id='Dataset_Table_Label' cellspacing='0'>";
 				echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
