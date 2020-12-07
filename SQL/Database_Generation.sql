@@ -22,8 +22,7 @@ CREATE TABLE IF NOT EXISTS `Marv_Related_Information`.`Users` (
   PRIMARY KEY (`User_Number`),
   UNIQUE INDEX `User_Number_UNIQUE` (`User_Number` ASC),
   UNIQUE INDEX `Username_UNIQUE` (`Username` ASC),
-  UNIQUE INDEX `Email_Address_UNIQUE` (`Email_Address` ASC),
-  UNIQUE INDEX `Phone_Number_UNIQUE` (`Phone_Number` ASC))
+  UNIQUE INDEX `Email_Address_UNIQUE` (`Email_Address` ASC))
 ENGINE = InnoDB;
 
 
