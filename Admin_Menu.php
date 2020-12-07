@@ -40,11 +40,11 @@
 					
 					<form>
 						<button id='Register_Button' class='Login_And_Register_Buttons' name='Register_Button' value='Register'> <a href='Marv_Reg.php'>  Register  </a> </button>
-				</form>";
+					</form>";
 					
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
-							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
+							<form id='Logout_form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
@@ -66,8 +66,15 @@
 		
 
 	<?php 
-		if (isset($_POST['Delete_User'])) {
-			$DeleteUser = $_POST['Delete_User'];
+	//Set nulls and display page contents, excluding welcome bar
+		if (isset($_POST['Search_By_User_Number_Input'])) {
+			$SearchUserNumber = $_POST['Search_By_User_Number_Input'];
+		} else {
+			$SearchUserNumber = null;
+		}
+		
+		if (isset($_POST['Delete_User_Input'])) {
+			$DeleteUser = $_POST['Delete_User_Input'];
 		} else {
 			$DeleteUser = null;
 		}
@@ -108,13 +115,20 @@
 			$NewLabel = null;
 		}
 		
+		/** USER TABLES START **/
 		if (isset($_POST['Admin_View_Users'])) {
 			$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
-			echo "<form id='User_Table_Form' method='POST' action=''>";
+			echo "<form id='User_Table_form' method='POST' action=''>";
 				echo "<br>";
 				echo "<div id='Users_Div'>";
-				echo "<p id='User_Input_Label'> Delete User Based on User Number: </p> <input type='text' id='Delete_User' name='Delete_User' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+					
+					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+					
+					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+				
 					echo "<br><br><br>";
+				
 				echo "</div>";
 				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
 				echo "<table id='User_Table' cellspacing='0'>";
@@ -128,14 +142,133 @@
 			echo "</form>";	
 		}
 		
-		if (isset($_POST['Delete_User_Button'])) {
-			mysqli_query($connection, "DELETE FROM `users` WHERE User_Number='$DeleteUser'");
+		// Search for Users Based on Their User Number
+		if(isset($_POST['Search_By_User_Number_Button'])) {
+			$FindUserByNumberQuery = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number WHERE User_Number='$SearchUserNumber'");
+			if (mysqli_num_rows($FindUserByNumberQuery) > 0) {
+				echo "<form id='User_Table_form' method='POST' action=''>";
+				echo "<br>";
+					echo "<div id='Users_Div'>";
+						echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+						
+						echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+						
+						echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+					
+						echo "<br><br><br>";
+					
+					echo "</div>";
+					
+					echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+					echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+					while ($TableData = mysqli_fetch_assoc($FindUserByNumberQuery)) {
+						echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+					}
+					
+					echo "</table>";
+				echo "</form>";	
+			} else {
+				echo '<script type="text/javascript"> alert("There is no user with that number! Showing full table results."); </script>'; 
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				echo "<form id='User_Table_form' method='POST' action=''>";
+					echo "<br>";
+					echo "<div id='Users_Div'>";
+						echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+						
+						echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+						
+						echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+					
+						echo "<br><br><br>";
+					
+					echo "</div>";
+					echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+					echo "<table id='User_Table' cellspacing='0'>";
+						echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+					
+						while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+							echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+						}
+					
+					echo "</table>";
+				echo "</form>";					
+			}
 		}
 		
-		/** MAIN TABLE START **/
+		
+		// Delete Users
+		
+		if (isset($_POST['Delete_User_Button'])) {
+			if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `users` WHERE User_Number='$DeleteUser'")) > 0) {		
+				mysqli_query($connection, "DELETE FROM `users` WHERE User_Number='$DeleteUser'");
+				echo '<script type="text/javascript"> alert("User successfully deleted. Showing full table results."); </script>';
+			
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				echo "<form id='User_Table_form' method='POST' action=''>";
+				echo "<br>";
+				echo "<div id='Users_Div'>";
+					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+					
+					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+					
+					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+				
+					echo "<br><br><br>";
+				
+				echo "</div>";
+				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+				echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+				
+					while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+						echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+					}
+				
+				echo "</table>";
+			echo "</form>";					
+			
+			} else {
+				echo '<script type="text/javascript"> alert("There is no user with that number! Showing full table results."); </script>';
+				
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				echo "<form id='User_Table_form' method='POST' action=''>";
+				echo "<br>";
+				echo "<div id='Users_Div'>";
+					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+					
+					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+					
+					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+				
+					echo "<br><br><br>";
+				
+				echo "</div>";
+				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+				echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+				
+					while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+						echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+					}
+				
+				echo "</table>";
+			echo "</form>";					
+			}
+		}
+		
+		/** USER TABLES END **/
+		
+		
+		
+		
+		
+		
+		
+		/** MAIN ADMIN TABLE START **/
 		
 		if (isset($_POST['Admin_View_Dataset'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -184,7 +317,7 @@
 		// Next 50 Results
 		
 		if (isset($_POST['Show_Next_50_Main'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -215,7 +348,7 @@
 			$Next50Main = mysqli_query($connection, "SELECT * FROM `dataset` LIMIT 51 OFFSET " . ($_SESSION['Counter'] + 50) . "");
 			if ($_SESSION['Counter'] <= mysqli_num_rows($CheckTableData) AND mysqli_fetch_assoc($Next50Main)) {
 				echo "<h3 class='Center'> Dataset Table </h3>";
-				echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+				echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<table class='Dataset_Table_Main2' cellspacing='0'>";
 					echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";			
 					while ($Next50SetMain = mysqli_fetch_assoc($Next50Main)) {
@@ -243,7 +376,7 @@
 		// Show Previous 50 Results
 		
 		if (isset($_POST['Show_Last_50_Main'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -273,7 +406,7 @@
 			
 			if ($_SESSION['Counter'] >= 50 AND mysqli_fetch_assoc($Next50Main)) {
 				echo "<h3 class='Center'> Dataset Table </h3>";
-				echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+				echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<table class='Dataset_Table_Main2' cellspacing='0'>";
 					echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";			
 					while ($Next50SetMain = mysqli_fetch_assoc($Next50Main)) {
@@ -316,7 +449,7 @@
 		
 		// Search by number
 		if (isset($_POST['Dataset_Search_By_Number_Button'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -358,7 +491,7 @@
 		/** SEARCH BY TEXT START **/
 		
 		if (isset($_POST['Dataset_Search_By_Text_Button'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -413,7 +546,7 @@
 		// Next 50 results
 		
 		if (isset($_POST['Show_Next_50_Text'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -469,7 +602,7 @@
 		// Last 50 results
 		
 		if (isset($_POST['Show_Last_50_Text'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -541,7 +674,7 @@
 		/** SEARCH BY LABEL START **/
 		
 		if (isset($_POST['Dataset_Search_By_Label_Real'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -591,7 +724,7 @@
 		}
 		
 		if (isset($_POST['Dataset_Search_By_Label_Fake'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -644,7 +777,7 @@
 		// Next 50 Results
 		
 		if(isset($_POST['Show_Next_50_Label'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
@@ -702,7 +835,7 @@
 		// Last 50 Results
 		
 		if(isset($_POST['Show_Last_50_Label'])) {
-			echo "<form class='Dataset_Table_Form' method='POST' action=''>";
+			echo "<form class='Dataset_Table_form' method='POST' action=''>";
 				echo "<div id='Dataset_Search_Div'>"; 
 					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
 					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
