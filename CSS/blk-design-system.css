@@ -485,6 +485,14 @@ td:nth-child(even), th:nth-child(even) {
 	background-color: orange;
 } 
 
+td:not(:nth-child(2)) {
+	text-align: center;
+}
+
+#User_Table td:nth-child(2) {
+	text-align: center;
+}
+
 @keyframes move-left-right {
   0% {
     transform: translateX(-10px);

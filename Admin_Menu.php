@@ -73,6 +73,14 @@
 			$SearchUserNumber = null;
 		}
 		
+		if (isset($_POST['Search_By_Username_Input'])) {
+			$SearchUsername = $_POST['Search_By_Username_Input'];
+			$SearchUsername = "%" . $SearchUsername . "%";
+			$_SESSION['SearchUsername'] = $SearchUsername;
+		} else {
+			$SearchUsername = null;
+		}
+		
 		if (isset($_POST['Delete_User_Input'])) {
 			$DeleteUser = $_POST['Delete_User_Input'];
 		} else {
@@ -196,6 +204,61 @@
 			}
 		}
 		
+		// Search for Users Based on Their Username
+		
+		if (isset($_POST['Search_By_Username_Button'])) {
+			$FindUserByUsernameQuery = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number WHERE Username LIKE '" . $_SESSION['SearchUsername'] . "'");
+			if (mysqli_num_rows($FindUserByUsernameQuery) > 0) {
+				echo "<form id='User_Table_form' method='POST' action=''>";
+				echo "<br>";
+					echo "<div id='Users_Div'>";
+						echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+						
+						echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+						
+						echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+					
+						echo "<br><br><br>";
+					
+					echo "</div>";
+					
+					echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+					echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+					while ($TableData = mysqli_fetch_assoc($FindUserByUsernameQuery)) {
+						echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+					}
+					
+					echo "</table>";
+				echo "</form>";	
+			} else {
+				echo '<script type="text/javascript"> alert("No user has that username! Showing full table results."); </script>';
+				
+				$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
+				echo "<form id='User_Table_form' method='POST' action=''>";
+				echo "<br>";
+				echo "<div id='Users_Div'>";
+					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
+					
+					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
+					
+					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
+				
+					echo "<br><br><br>";
+				
+				echo "</div>";
+				echo "<h3 id='User_Table_Title' class='Center'> Users Table </h3>";
+				echo "<table id='User_Table' cellspacing='0'>";
+					echo "<tr> <th> User Number </th> <th> Username </th> <th> Account Type </th> <th> Email Address </th> <th> Phone Number </th> </tr>";
+				
+					while ($TableData = mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+						echo "<tr> <td>" . $TableData['User_Number'] . "</td> <td>" . $TableData['Username'] . "</td> <td>" . $TableData['Admin_Account'] ."</td> <td>" . $TableData['Email_Address'] . "</td> <td>" . $TableData['Phone_Number'] . "</td> </tr>";
+					}
+				
+				echo "</table>";
+			echo "</form>";					
+			}
+		}
 		
 		// Delete Users
 		
@@ -917,15 +980,156 @@
 				mysqli_query($connection, "INSERT INTO `dataset` (News_Text, label, Bert_Int) VALUES ('$NewText', '$NewLabel','$BertInt')");	
 				echo '<script type="text/javascript"> alert("Your article has been successfully added to the database!"); </script>'; 				
 			} else {
-				echo '<script type="text/javascript"> alert("Your label, ' . $NewLabel . ', is not a real label. Use FAKE or REAL."); </script>'; 
+				echo '<script type="text/javascript"> alert("Your label, ' . $NewLabel . ', is not a real label. Nothing has been added to the database. Use FAKE or REAL as your label and try again. Showing full table results."); </script>';
+			
+				echo "<form class='Dataset_Table_form' method='POST' action=''>";
+				echo "<div id='Dataset_Search_Div'>"; 
+					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
+					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
+					echo "<br><br>";
+					echo "<h3> Use this box to search the table based on an article's content/its text. </h3>";
+					echo "<p class='Text_Label'> Search By Text: </p> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Dataset_Search_By_Text_Button' name='Dataset_Search_By_Text_Button' value='Dataset_Search_By_Text_Button'> Search Dataset By Text </button>"; 
+					echo "<br><br>";
+					
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
+					
+					echo "<br><br>";
+					
+					echo "<h3> Use this box to add new articles to the dataset. </h3>";
+					echo "<p class='New_Article_Text'> News Article Text To Add: </p> <input type='text' id='Add_Text' name='Add_Text' value=''> </input>
+					<p class='New_Article_Label'> News Article Label (REAL or FAKE): </p> <input type='text' id='Add_Label' name='Add_Label' value=''> </input> <br>
+					<button id='Add_To_Dataset_Button' name='Add_To_Dataset_Button' value='Add_To_Dataset_Button'> Add Article To Database </button>"; 
+					
+					echo "<br><br><br>";
+					
+					echo "<h3> Use this box to delete entries from the database. </h3>";
+					echo "<p class='Delete_Label'> Article Number for Deletion: </p> <input type='text' id='Dataset_Delete_News' name='Dataset_Delete_News' value=''> </input> <button id='Dataset_Delete_News_Button' name='Dataset_Delete_News_Button' value='Dataset_Delete_News_Button'> Delete Article With This Number </button>"; 
+		
+				echo "</div>";
+			echo "</form>";
+			echo "<br>";			
+					
+			echo "<h3 class='Center'> Dataset Table </h3>";
+			echo "<table id='Dataset_Table_Main' cellspacing='0'>";
+			echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
+			$ViewDatasetTableInDatabase = mysqli_query($connection, "SELECT * FROM `dataset` LIMIT 51");	
+			while ($TableData2 = mysqli_fetch_assoc($ViewDatasetTableInDatabase)) {
+				echo "<tr> <td>" . $TableData2['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $TableData2['News_Text'] . "</td> <td>" . $TableData2['label'] ."</td> </tr>";
+			}
+			
+			echo "</table>";		
+			echo "<br><br>";
+
+			echo "<form method='POST' action=''>";
+				echo "<button id='Show_Next_50_Main' name='Show_Next_50_Main' value='Show_Next_50_Main'> Show Next 50 Results </button>";
+			echo "</form>";
+
+			$_SESSION['Counter'] = 0;											
 			}
 		}
 		
 		// Delete From Dataset
 			
 		if (isset($_POST['Dataset_Delete_News_Button'])) {
-			$DeletionDatasetQuery = mysqli_query($connection, "DELETE FROM `dataset` WHERE News_Article_Number='$ArticleNumberDelete'");
-			echo '<script type="text/javascript"> alert("That article, number ' . $ArticleNumberDelete . ', if it exists, has been removed from the database!"); </script>';
+			if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM`dataset` WHERE News_Article_Number='$ArticleNumberDelete'")) > 0) {		
+				mysqli_query($connection, "DELETE FROM `dataset` WHERE News_Article_Number='$ArticleNumberDelete'");
+		
+				echo '<script type="text/javascript"> alert("That article, number ' . $ArticleNumberDelete . ', has been removed from the database! Showing full table results."); </script>';
+			
+				echo "<form class='Dataset_Table_form' method='POST' action=''>";
+				echo "<div id='Dataset_Search_Div'>"; 
+					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
+					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
+					echo "<br><br>";
+					echo "<h3> Use this box to search the table based on an article's content/its text. </h3>";
+					echo "<p class='Text_Label'> Search By Text: </p> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Dataset_Search_By_Text_Button' name='Dataset_Search_By_Text_Button' value='Dataset_Search_By_Text_Button'> Search Dataset By Text </button>"; 
+					echo "<br><br>";
+					
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
+					
+					echo "<br><br>";
+					
+					echo "<h3> Use this box to add new articles to the dataset. </h3>";
+					echo "<p class='New_Article_Text'> News Article Text To Add: </p> <input type='text' id='Add_Text' name='Add_Text' value=''> </input>
+					<p class='New_Article_Label'> News Article Label (REAL or FAKE): </p> <input type='text' id='Add_Label' name='Add_Label' value=''> </input> <br>
+					<button id='Add_To_Dataset_Button' name='Add_To_Dataset_Button' value='Add_To_Dataset_Button'> Add Article To Database </button>"; 
+					
+					echo "<br><br><br>";
+					
+					echo "<h3> Use this box to delete entries from the database. </h3>";
+					echo "<p class='Delete_Label'> Article Number for Deletion: </p> <input type='text' id='Dataset_Delete_News' name='Dataset_Delete_News' value=''> </input> <button id='Dataset_Delete_News_Button' name='Dataset_Delete_News_Button' value='Dataset_Delete_News_Button'> Delete Article With This Number </button>"; 
+		
+				echo "</div>";
+			echo "</form>";
+			echo "<br>";			
+					
+			echo "<h3 class='Center'> Dataset Table </h3>";
+			echo "<table id='Dataset_Table_Main' cellspacing='0'>";
+			echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
+			$ViewDatasetTableInDatabase = mysqli_query($connection, "SELECT * FROM `dataset` LIMIT 51");	
+			while ($TableData2 = mysqli_fetch_assoc($ViewDatasetTableInDatabase)) {
+				echo "<tr> <td>" . $TableData2['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $TableData2['News_Text'] . "</td> <td>" . $TableData2['label'] ."</td> </tr>";
+			}
+			
+			echo "</table>";		
+			echo "<br><br>";
+
+			echo "<form method='POST' action=''>";
+				echo "<button id='Show_Next_50_Main' name='Show_Next_50_Main' value='Show_Next_50_Main'> Show Next 50 Results </button>";
+			echo "</form>";
+
+			$_SESSION['Counter'] = 0;							
+	
+		} else {
+			echo '<script type="text/javascript"> alert("That article, number ' . $ArticleNumberDelete . ', did not exist in the database when you tried to delete it. Nothing new has been deleted. Showing full table results."); </script>';
+			
+				echo "<form class='Dataset_Table_form' method='POST' action=''>";
+				echo "<div id='Dataset_Search_Div'>"; 
+					echo "<h3> Use this box to search the table based on an article's article number. </h3>";
+					echo "<p class='Number_Label'> Search By Number: </p> <input type='text' id='Dataset_Search_By_Number' class='Admin_Menu_Input_Box' name='Dataset_Search_By_Number' value=''> </input> <button id='Dataset_Search_By_Number_Button' name='Dataset_Search_By_Number_Button' value='Dataset_Search_By_Number_Button'> Search Dataset By Number </button>"; 
+					echo "<br><br>";
+					echo "<h3> Use this box to search the table based on an article's content/its text. </h3>";
+					echo "<p class='Text_Label'> Search By Text: </p> <input type='text' id='Dataset_Search_By_Text' name='Dataset_Search_By_Text' value=''> </input> <button id='Dataset_Search_By_Text_Button' name='Dataset_Search_By_Text_Button' value='Dataset_Search_By_Text_Button'> Search Dataset By Text </button>"; 
+					echo "<br><br>";
+					
+					echo "<h3> Use this box to search the table based on an article's label, be it fake or real. </h3>";
+					echo "<button class='Dataset_Search_By_Label_Real' name='Dataset_Search_By_Label_Real' value='REAL'> Search By True Results </button> <button class='Dataset_Search_By_Label_Fake' name='Dataset_Search_By_Label_Fake' value='FAKE'> Search By Fake Results </button>"; 
+					
+					echo "<br><br>";
+					
+					echo "<h3> Use this box to add new articles to the dataset. </h3>";
+					echo "<p class='New_Article_Text'> News Article Text To Add: </p> <input type='text' id='Add_Text' name='Add_Text' value=''> </input>
+					<p class='New_Article_Label'> News Article Label (REAL or FAKE): </p> <input type='text' id='Add_Label' name='Add_Label' value=''> </input> <br>
+					<button id='Add_To_Dataset_Button' name='Add_To_Dataset_Button' value='Add_To_Dataset_Button'> Add Article To Database </button>"; 
+					
+					echo "<br><br><br>";
+					
+					echo "<h3> Use this box to delete entries from the database. </h3>";
+					echo "<p class='Delete_Label'> Article Number for Deletion: </p> <input type='text' id='Dataset_Delete_News' name='Dataset_Delete_News' value=''> </input> <button id='Dataset_Delete_News_Button' name='Dataset_Delete_News_Button' value='Dataset_Delete_News_Button'> Delete Article With This Number </button>"; 
+		
+				echo "</div>";
+			echo "</form>";
+			echo "<br>";			
+					
+			echo "<h3 class='Center'> Dataset Table </h3>";
+			echo "<table id='Dataset_Table_Main' cellspacing='0'>";
+			echo "<tr> <th> News Article Number </th> <th> News Text </th> <th> News Label </th> </tr>";
+			$ViewDatasetTableInDatabase = mysqli_query($connection, "SELECT * FROM `dataset` LIMIT 51");	
+			while ($TableData2 = mysqli_fetch_assoc($ViewDatasetTableInDatabase)) {
+				echo "<tr> <td>" . $TableData2['News_Article_Number'] . "</td> <td class='Regular_Text_Td'>" . $TableData2['News_Text'] . "</td> <td>" . $TableData2['label'] ."</td> </tr>";
+			}
+			
+			echo "</table>";		
+			echo "<br><br>";
+
+			echo "<form method='POST' action=''>";
+				echo "<button id='Show_Next_50_Main' name='Show_Next_50_Main' value='Show_Next_50_Main'> Show Next 50 Results </button>";
+			echo "</form>";
+
+			$_SESSION['Counter'] = 0;			
+			}
 		}
 	?>
 	</body>
