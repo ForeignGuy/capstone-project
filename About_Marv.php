@@ -51,7 +51,7 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>
+
 				</div>
 				<br><br>
 				
@@ -63,6 +63,7 @@
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
+								<a id='Reset_Password_Link_Logged_In' href='Reset_Password.php'> <b> <u> Password Reset </u> </b> </a>
 							</form>
 					</div>
 					

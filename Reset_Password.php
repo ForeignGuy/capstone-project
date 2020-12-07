@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<title> Homepage </title>
+		<title> Reset Password </title>
 		<meta charset="utf-8">
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
 		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
@@ -16,11 +16,11 @@
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
+			<span class="Welcome_Item"> Homepage </span>
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
-			<span id="Final_Welcome_Item"> Contact Us </span>
+			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
 			
 			<?php
 				if (isset($_SESSION['Username'])) {
@@ -37,8 +37,6 @@
 					}
 				}
 			?>
-
-
 			<?php
 				if (!isset($_SESSION['Username'])) { echo "
 					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>
@@ -53,8 +51,12 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-";
-					echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';					
+			
+					</div>	
+					<br><br>
+		
+					<div id='Homepage_Main_Text_Div'>
+						<h2 id='Main_Heading' class='Center'> Our Site </h2>";	
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
 							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
@@ -63,20 +65,25 @@
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
 								<a id='Reset_Password_Link_Logged_In' href='Reset_Password.php'> <b> <u> Password Reset </u> </b> </a>
 							</form>
-							</div>";
-						echo "<br><br><br>
-							<footer>
-								<form method='POST' action='PHP_Actions/Contact_Us_Action.php'>
-									<h3 id='Feedback_Heading' class='Center'> Any feedback about MARV or this site? Please provide it below. </h3>
-									<textarea id='Feedback_Box' name='Feedback_Box' rows='6' cols='75' placeholder='Please write your comment here!'></textarea>
-									<br><br>
-									<input type='submit' id='Feedback_Submit' name='Feedback_Submit' value='Submit Feedback'>
-								</form>
-						</footer>";
+							
+						</div>
+						
+						<br><br>
+		
+						<div id='Homepage_Main_Text_Div'>
+							<h2 id='Main_Heading_Logged_In' class='Center'> Password Reset </h2>";
 				} 
 			?>
+			
+			<h3 id="Reset_Password_Heading" class="Center"> To reset your password, please type the request information into the boxes below. </h3>
+			<form method="POST" action="">
+				<p id="Old_Password_Label"> Old Password: </p><input type="password" id="Old_Password_Input" name="Old_Password_Input" required></input> 
+				<p id="New_Password_Label"> New Password: </p><input type="password" id="New_Password_Input" name="New_Password_Input" required></input>
+				<br><br>
+				<p id="Check_Password_Label"> Retype New Password: </p><input type="password" id="Check_Password_Input" name="Check_Password_Input" required></input>
+				<br><br> <input type="submit" id="Reset_Password_Button" name="Reset_Password_Button" value="Change Password"></button>
+			</form>
 		</div>
-</html>
   <script>
     $(document).ready(function() {
       blackKit.initDatePicker();
@@ -94,6 +101,39 @@
   </script>
 	</body>
 </html>
+
+<?php
+	if (isset($_POST['Reset_Password_Button'])) {
+		$OldPassword = $_POST['Old_Password_Input'];	
+		$NewPassword = $_POST['New_Password_Input'];
+		$VerifyNewPassword = $_POST['Check_Password_Input'];
+		
+		if ($NewPassword == $VerifyNewPassword) {
+			$HashedNewPassword = password_hash($NewPassword, PASSWORD_DEFAULT);
+						
+			$CheckEncryptedPassword = mysqli_query($connection, "SELECT `Password` FROM `users` WHERE Username='" . $_SESSION['Username'] . "'");
+			
+			while ($row = mysqli_fetch_assoc($CheckEncryptedPassword)) {
+				$DatabasePassword = $row['Password'];
+				
+				$OldPassword = trim($OldPassword);
+				$DatabasePassword = trim($DatabasePassword);
+			
+				$VerifyOldPassword = password_verify($OldPassword, $DatabasePassword);		
+				
+				$CheckPasswordResetMatch = mysqli_query($connection, "SELECT * FROM `users` WHERE (Username='" . $_SESSION['Username'] . "' AND Password='$OldPassword') OR (Username='" . $_SESSION['Username'] . "' AND '$VerifyOldPassword'=1)");
+	
+				if (mysqli_num_rows($CheckPasswordResetMatch) > 0) {
+					mysqli_query($connection, "UPDATE `users` SET Password='$HashedNewPassword' WHERE Username='" . $_SESSION['Username'] . "'");
+				} else {
+					echo '<script type="text/javascript"> alert("Password incorrect. Try again."); </script>';
+				}
+			}
+	} else {
+		echo '<script type="text/javascript"> alert("Your new password was not correctly retyped into the provided password confirmation box. Please try again."); </script>';
+	}
+}
+?>
 
 <style>
 

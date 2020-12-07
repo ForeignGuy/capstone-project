@@ -1,4 +1,5 @@
 <?php
+	error_reporting(0);
 	session_start();
 	$connection = mysqli_connect("localhost", "root", "", "Marv_Related_Information");
 	
@@ -23,7 +24,7 @@
 				$_SESSION['Username'] = $UserUsername;
 				header("Location: ../Homepage.php");
 			} else {
-				echo '<script type="text/javascript"> alert("Username or password not found."); </script>';
+				echo '<script type="text/javascript"> alert("That username either does not exist, or it does not have that password associated with it."); </script>';
 				echo '<script type="text/javascript"> window.location.href="../Marv_Reg.php" </script>';
 			}
 

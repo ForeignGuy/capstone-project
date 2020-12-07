@@ -52,7 +52,7 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>";
+";
 					echo '<script type="text/javascript">alert("Login is required to view page contents");</script>';					
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
@@ -60,10 +60,11 @@
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
+								<a id='Reset_Password_Link_Logged_In' href='Reset_Password.php'> <b> <u> Password Reset </u> </b> </a>
 							</form>";
 					echo "</div>";		
 					echo "<form method='POST' action=''>
-							<h3 id='Use_Marv_Heading'> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below, rather than just the article headline/title. </h3>
+							<h3 id='Use_Marv_Heading'> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below (rather than just the article headline/title). </h3> <h1 style='color:red'>NOTE: Marv's predictions strive to be as accurate as possible. Marv is a powerful tool, but it can still make mistakes. Do not use Marv on its own to determine whether or not a news article is fake. Do not use Marv as anything other than as a <u> supplementary</u> tool in detecting fake news.</h1>
 							<textarea id='Headline' name='Headline' rows='5' cols='120' placeholder='Article text goes here.' required></textarea>
 							<br><br>
 							<input type='submit' id='Headline_Submit' name='Use_Marv_Input' value='Click To See Article Validity'> </input>

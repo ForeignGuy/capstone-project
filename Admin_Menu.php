@@ -40,8 +40,7 @@
 					
 					<form>
 						<button id='Register_Button' class='Login_And_Register_Buttons' name='Register_Button' value='Register'> <a href='Marv_Reg.php'>  Register  </a> </button>
-						<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>
-					</form>";
+				</form>";
 					
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
@@ -49,7 +48,9 @@
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
-							</form>";
+								<a id='Reset_Password_Link_Logged_In' href='Reset_Password.php'> <b> <u> Password Reset </u> </b> </a>
+							</form>
+						</div>";
 				} 
 			?>
 		</div>
