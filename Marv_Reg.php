@@ -51,7 +51,7 @@
 						</div>
 						<br><br>
 						<i class='fa fa-phone icon'></i>
-                        <input placeholder=Phone Number type='tel'  id='Phone_Number' name='Phone_Number' size='75' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' title= 'please follow this format, xxx-xxx-xxxx'
+                        <input placeholder=Phone Number type='tel' id='Phone_Number' name='Phone_Number' size='75' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' title= 'please follow this format, xxx-xxx-xxxx'>
 						<br>
 						<button style='width: 100; height: 35; margin-right:-10px;' type='submit' id='Register_Submit' name='Register_Submit' value='Register'> Register </button>
 						<div class='container signin'>
