@@ -57,7 +57,6 @@
 						<button style='width: 100; height: 35; margin-right:-10px;' type='submit' id='Register_Submit' name='Register_Submit' value='Register'> Register </button>
 						<div class='container signin'>
 						   <br> <p>Already have an account?  <a href='Homepage.php'>Login</a>.</p>
-
 				</form>";
 			} else {
 				echo "<div class='Login_Or_Logout_Area Float_Right'>

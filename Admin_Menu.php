@@ -163,7 +163,7 @@
 			$ViewUserTableInDatabase2 = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number");
 			$CheckTableData2 = mysqli_num_rows($ViewUserTableInDatabase2);
 			$ViewUserTableInDatabase = mysqli_query($connection, "SELECT * FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number LIMIT 6 OFFSET " . ($_SESSION['Counter'] + 5) . "");
-			if ($_SESSION['Counter'] <= $CheckTableData2 AND mysqli_fetch_assoc($ViewUserTableInDatabase)) {
+			if (($_SESSION['Counter'] + 6) < $CheckTableData2 AND mysqli_fetch_assoc($ViewUserTableInDatabase)) {
 			echo "<form id='User_Table_form' method='POST' action=''>";
 				echo "<br>";
 				echo "<div id='Users_Div'>";
