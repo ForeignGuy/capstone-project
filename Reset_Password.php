@@ -71,13 +71,13 @@
 						
 						<br><br>
 		
-						<div id='Homepage_Main_Text_Div'>
+						<div id='Reset_Password_Div'>
 							<h2 id='Main_Heading_Logged_In' class='Center'> Password Reset </h2>";
 				} 
 			?>
-			
-			<h3 id="Reset_Password_Heading" class="Center"> To reset your password, please type the request information into the boxes below. </h3>
-			<form method="POST" action="">
+		
+			<form id="" method="POST" action="">
+				<h3 id="Reset_Password_Heading" class="Center"> To reset your password, please type the request information into the boxes below. </h3>
 				<p id="Old_Password_Label"> Old Password: </p><input type="password" id="Old_Password_Input" name="Old_Password_Input" required></input> 
 				<p id="New_Password_Label"> New Password: </p><input type="password" id="New_Password_Input" name="New_Password_Input" required></input>
 				<br><br>

@@ -29,7 +29,6 @@
 	margin-top: -180px;
 	margin-left: 470px;
 	margin-bottom: 0px;
-	line-height: 0px;
 }
 
 h1 {
@@ -115,6 +114,12 @@ h1 {
 	top: -70px;
 	left: 495px;
 	margin-left: -500px;
+}
+
+/* Reset Password */
+
+#Reset_Password_Div {
+	margin-top: 0px;
 }
 
 /*Homepage */
