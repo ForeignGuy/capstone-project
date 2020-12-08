@@ -252,8 +252,19 @@ h1 {
 	margin-bottom: 20px;
 }
 
+#Show_Next_50_Users_Username {
+	margin-left: 380px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 
 #Show_Last_50_Users {
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#Show_Last_50_Users_Username {
 	margin-left: 200px;
 	margin-top: 20px;
 	margin-bottom: 20px;
