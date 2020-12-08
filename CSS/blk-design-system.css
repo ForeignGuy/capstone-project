@@ -19,9 +19,17 @@
 /* Main Welcome Bar (Excluding Login) */
 
 #Welcome_Bar {
+	padding-top: 40px;
 	height: 175px;
 	padding-right: 20px;
 	padding-left: 20px;
+}
+
+#Logo {
+	margin-top: -180px;
+	margin-left: 470px;
+	margin-bottom: 0px;
+	line-height: 0px;
 }
 
 h1 {
@@ -58,7 +66,7 @@ h1 {
 
 .Login_Or_Logout_Area {
 	margin-right: 20px;
-	margin-top: -90px;
+	margin-top: -250px;
 }
 
 #Login_Title{
@@ -89,8 +97,8 @@ h1 {
 }
 
 #Register_Button {
-	margin-top: 22px;
-	margin-right: -225px;
+	margin-top: -138px;
+	margin-right: 117px;
 	height: 30px;
 	width: 80px;
 	float: right;
@@ -109,10 +117,37 @@ h1 {
 	margin-left: -500px;
 }
 
+/*Homepage */
+
+#Homepage_Main_Text_Div {
+	margin-top: 130px;
+}
+
+#Homepage_Main_Text_Div_Logged_In {
+	margin-top: 0px;
+}
+
+/* About Marv */
+#About_Marv_Main_Text_Div {
+	margin-top: 90px;
+}
+
+#About_Marv_Main_Text_Div_Logged_In {
+	margin-top: 150px;
+}
+
 /* About Us */
 
 #About_Us_Heading {
 	margin-left: -80px;
+}
+
+#About_Us_Main_Text_Div {
+	margin-top: 90px;
+}
+
+#About_Us_Main_Text_Div_Logged_In {
+	
 }
 
 #About_Us_List {
@@ -120,7 +155,15 @@ h1 {
 	margin-left: 530px;
 }
 
+#Register_Form {
+	margin-top: 130px;
+}
+
 /* Admin Menu Page */
+
+#Admin_Greeting_Div {
+	margin-top: 140px;
+}
 
 #Admin_View_Users {
 	margin-left: -40px;
@@ -467,7 +510,7 @@ h1 {
 }
 
 #Main_Heading_Logged_In {
-	margin-left: 120px;
+	margin-left: -100px;
 }
 
 /* Text */

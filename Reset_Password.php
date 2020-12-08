@@ -15,8 +15,9 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-			<span class="Welcome_Item"> Homepage </span>
+			<span> <img id="Logo" height="300px" width="300px" src="Logo_FINAL.png"> </img> </span>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> <br>
+			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
@@ -154,8 +155,9 @@ input{
 	float: right;
 
 }
-.ml3{
-	text-align: center;
+
+.ml3 {
+	text-align: left;
 
 }
 </style>

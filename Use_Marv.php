@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<title> Homepage </title>
+		<title> Use Marv </title>
 		<meta charset="utf-8">
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
 		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
@@ -15,7 +15,8 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+			<span> <img id="Logo" height="300px" width="300px" src="Logo_FINAL.png"> </img> </span>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> <br>
 			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
@@ -121,8 +122,9 @@ input{
 	float: right;
 
 }
-.ml3{
-	text-align: center;
+
+.ml3 {
+	text-align: left;
 
 }
 </style>

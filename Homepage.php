@@ -15,13 +15,13 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+			<span> <img id="Logo" height="300px" width="300px" src="Logo_FINAL.png"> </img> </span>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> <br>
 			<span class="Welcome_Item"> Homepage </span>
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
 			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
-			
 			<?php
 				if (isset($_SESSION['Username'])) {
 					$CurrentUsername = $_SESSION['Username'];
@@ -38,8 +38,8 @@
 				}
 			?>
 			<?php
-				if (!isset($_SESSION['Username'])) { echo "
-					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>
+				if (!isset($_SESSION['Username'])) { 
+				echo "<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>
 						<h4 id='Login_Title'> Sign-in/Register </h4>
 						<i class='fa fa-user icon'></i>
 					 <input placeholder='Username' name= 'Username' type='text' id='Username'required>
@@ -53,8 +53,7 @@
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
 			
 					</div>	
-					<br><br>
-		
+					
 					<div id='Homepage_Main_Text_Div'>
 						<h2 id='Main_Heading' class='Center'> Our Site </h2>";	
 				} else {
@@ -70,7 +69,7 @@
 						
 						<br><br>
 		
-						<div id='Homepage_Main_Text_Div'>
+						<div id='Homepage_Main_Text_Div_Logged_In'>
 							<h2 id='Main_Heading_Logged_In' class='Center'> Our Site </h2>";
 				} 
 			?>
@@ -118,8 +117,8 @@ input{
 	float: right;
 
 }
-.ml3{
-	text-align: center;
+.ml3 {
+	text-align: left;
 
 }
 </style>

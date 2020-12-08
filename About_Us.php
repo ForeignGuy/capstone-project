@@ -15,7 +15,8 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+			<span> <img id="Logo" height="300px" width="300px" src="Logo_FINAL.png"> </img> </span>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> <br>
 			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> About Us </span>
@@ -55,7 +56,7 @@
 		
 					<br><br>
 		
-					<div id='About_Marv_Main_Text_Div'>
+					<div id='About_Us_Main_Text_Div'>
 						<h2 id='Main_Heading' class='Center'> Who We Are </h2>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
@@ -69,7 +70,7 @@
 		
 					<br><br>
 		
-					<div id='About_Marv_Main_Text_Div'>
+					<div id='About_Us_Main_Text_Div_Logged_In'>
 						<h2 id='Main_Heading_Logged_In' class='Center'> Who We Are </h2>";
 				} 
 			?>
@@ -128,8 +129,9 @@ input{
 	float: right;
 
 }
-.ml3{
-	text-align: center;
+
+.ml3 {
+	text-align: left;
 
 }
 </style>
