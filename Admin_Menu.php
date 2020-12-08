@@ -133,7 +133,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -168,7 +168,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -211,7 +211,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -272,7 +272,7 @@
 						echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 						
 						echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-						
+					echo "<br>";	
 						echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 					
 						echo "<br><br><br>";
@@ -297,7 +297,7 @@
 						echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 						
 						echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-						
+					echo "<br>";	
 						echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 					
 						echo "<br><br><br>";
@@ -326,7 +326,7 @@
 						echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 						
 						echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-						
+					echo "<br>";	
 						echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 					
 						echo "<br><br><br>";
@@ -357,7 +357,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -395,7 +395,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -425,7 +425,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -448,7 +448,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -496,7 +496,6 @@
 			$_SESSION['Counter'] = $_SESSION['Counter'] - 5;	
 		}
 		
-		
 		// Delete Users
 		
 		if (isset($_POST['Delete_User_Button'])) {
@@ -511,7 +510,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";
@@ -538,7 +537,7 @@
 					echo "<p id='User_Input_Label_Search_Number'> Search for User Based on User Number: </p> <input type='text' id='Search_By_User_Number_Input' name='Search_By_User_Number_Input' value=''> </input> <button id='Search_By_User_Number_Button' name='Search_By_User_Number_Button' value='Search for This User'> Search for This User</button>";
 					
 					echo "<p id='User_Input_Label_Search_Username'> Search for User Based on Username: </p> <input type='text' id='Search_By_Username_Input' name='Search_By_Username_Input' value=''> </input> <button id='Search_By_Username_Button' name='Search_By_Username_Button' value='Search for This User'> Search for This User </button>";
-					
+					echo "<br>";
 					echo "<p id='User_Input_Label_Delete'> Delete User Based on User Number: </p> <input type='text' id='Delete_User_Input' name='Delete_User_Input' value=''> </input> <button id='Delete_User_Button' name='Delete_User_Button' value='Delete This User'> Delete This User </button>"; 
 				
 					echo "<br><br><br>";

@@ -146,13 +146,41 @@ h1 {
 	margin-left: 450px;
 }
 
+#User_Input_Label_Search_Number {
+	
+}
+
+#User_Input_Label_Search_Username {
+	margin-top: 30px;
+}
+
 #User_Input_Label_Delete {
-	margin-top: 20px;
+	margin-top: 30px;
+}
+
+#Search_By_User_Number_Input {
+	margin-top: -30px;
+	margin-right: 535px;
+}
+
+#Search_By_User_Number_Button {
+	margin-top: -30px;
+	margin-left: 480px;
+}
+
+#Search_By_Username_Input {
+	margin-top: -30px;
+	margin-right: 550px;
+}
+
+#Search_By_Username_Button {
+	margin-top: -30px;
+	margin-left: 460px;
 }
 
 #Delete_User_Input {
 	margin-top: -28px;
-	margin-right: 520px;
+	margin-right: 560px;
 }
 
 #Delete_User_Button {
