@@ -27,7 +27,7 @@
 
 #Logo {
 	margin-top: -180px;
-	margin-left: 470px;
+	margin-left: 1056px;
 	margin-bottom: 0px;
 }
 
@@ -49,8 +49,8 @@ h1 {
 }
 
 #Admin_Menu_Link {
-	margin-left: 450px;
-	font-size: 40px;
+	margin-left: 20px;
+	font-size: 30px;
 }
 
 /* Main Welcome Bar (Login) */
@@ -96,7 +96,7 @@ h1 {
 }
 
 #Register_Button {
-	margin-top: -138px;
+	margin-top: -182px;
 	margin-right: 117px;
 	height: 30px;
 	width: 80px;
@@ -129,7 +129,7 @@ h1 {
 }
 
 #Homepage_Main_Text_Div_Logged_In {
-	margin-top: 0px;
+	margin-top: -5px;
 }
 
 /* About Marv */
@@ -138,13 +138,14 @@ h1 {
 }
 
 #About_Marv_Main_Text_Div_Logged_In {
-	margin-top: 150px;
+	margin-top: 92px;
 }
 
 /* About Us */
 
 #About_Us_Heading {
 	margin-left: -80px;
+	font-size: 21px
 }
 
 #About_Us_Main_Text_Div {
@@ -152,12 +153,13 @@ h1 {
 }
 
 #About_Us_Main_Text_Div_Logged_In {
-	
+	margin-top: -5px;
 }
 
 #About_Us_List {
 	display: inline-block;
-	margin-left: 530px;
+	margin-left: 1125px;
+	font-size: 21px
 }
 
 #Register_Form {
@@ -195,45 +197,48 @@ h1 {
 }
 
 #User_Input_Label_Search_Number {
-	
+	margin-left: 400px;
 }
 
 #User_Input_Label_Search_Username {
 	margin-top: 30px;
+	margin-left: 400px;
+
 }
 
 #User_Input_Label_Delete {
 	margin-top: 30px;
+	margin-left: 400px;
 }
 
 #Search_By_User_Number_Input {
 	margin-top: -30px;
-	margin-right: 535px;
+	margin-right: 1250px;
 }
 
 #Search_By_User_Number_Button {
 	margin-top: -30px;
-	margin-left: 480px;
+	margin-left: 1300px;
 }
 
 #Search_By_Username_Input {
 	margin-top: -30px;
-	margin-right: 550px;
+	margin-right: 1250px;
 }
 
 #Search_By_Username_Button {
 	margin-top: -30px;
-	margin-left: 460px;
+	margin-left: 1300px;
 }
 
 #Delete_User_Input {
 	margin-top: -28px;
-	margin-right: 560px;
+	margin-right: 1250px;
 }
 
 #Delete_User_Button {
 	margin-top: -28px;
-	margin-left: 450px;
+	margin-left: 1300px;
 }
 
 .Regular_Text_Td {
@@ -248,35 +253,35 @@ h1 {
 
 
 .Number_Label { 
-	margin-left: 150px;
+	margin-left: 100px;
 }
 
 #Dataset_Search_By_Number {
 	margin-top: -30px;
-	margin-right: 630px;
+	margin-right: 1250px;
 }
 
 #Dataset_Search_By_Number_Button {
 	margin-top: -30px;
-	margin-left: 480px;
+	margin-left: 510px;
 }
 
 .Text_Label {
-	margin-left: 180px;
+	margin-left: 100px;
 }
 
 #Dataset_Search_By_Text {
 	margin-top: -30px;
-	margin-right: 630px;
+	margin-right: 1250px;
 }
 
 #Dataset_Search_By_Text_Button {
 	margin-top: -30px;
-	margin-left: 480px;
+	margin-left: 510px;
 }
 
 .Dataset_Search_By_Label_Real { 
-	margin-left: 150px;
+	margin-left: 100px;
 }
 
 .Dataset_Search_By_Label_Fake {
@@ -290,12 +295,12 @@ h1 {
 
 #Add_Text {
 	margin-top: -30px;
-	margin-right: 740px;
+	margin-right: 1350px;
 }
 
 #Add_Label {
 	margin-top: -30px;
-	margin-right: 285px;
+	margin-right: 900px;
 }
 
 #Add_To_Dataset_Button {
@@ -308,7 +313,7 @@ h1 {
 
 #Dataset_Delete_News {
 	margin-top: -30px;
-	margin-right: 630px;
+	margin-right: 1250px;
 }
 
 #Dataset_Delete_News_Button {
@@ -335,13 +340,13 @@ h1 {
 }
 
 #Show_Last_50_Users {
-	margin-left: 200px;
+	margin-left: -400px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
 #Show_Last_50_Users_Username {
-	margin-left: 200px;
+	margin-left: -400px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
@@ -405,7 +410,7 @@ h1 {
 /* Main Admin Menu CSS */
 
 #Dataset_Search_Div {
-	margin-left: 250px;
+	margin-left: 825px;
 }
 
 #Dataset_Table_Main {
@@ -436,21 +441,25 @@ h1 {
 /* Use Marv */
 
 #Use_Marv_Heading {
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: 600px;
+	padding-right: 600px;
+	margin-top: 35px;
 }
 
 #Headline {
-	margin-left: 200px;
+	margin-left: 800px;
 }
 
 #Headline_Submit {
-	margin-right: 600px;
+	margin-right: 1200px;
 	height: 25px;
 }
 
 #Output_Text_Area {
-	margin-left: -70px;
+	margin-left: -60px;
+	font-size: 21px;
+	color: black;
+	background-color: white;
 }
 
 /*Contact Us */
@@ -461,11 +470,11 @@ h1 {
 }
 
 #Feedback_Box {
-	margin-left: 320px;
+	margin-left: 955px;
 }
 
 #Feedback_Submit {
-	margin-right: 660px;
+	margin-right: 1225px;
 }
 
 /* Reset Password */
@@ -475,37 +484,41 @@ h1 {
 }
 
 #Old_Password_Label {
-	margin-left: 300px;
+	margin-left: 820px;
+	font-size: 21px;
 }
 
 #Old_Password_Input {
-	margin-top: -30px;
-	margin-right: 740px;
+	margin-top: -35px;
+	margin-right: 1350px;
 	height: 30px;
 }
 
 #New_Password_Label {
-	margin-top: -25px;
-	margin-left: 600px;
+	margin-top: -35px;
+	margin-left: 1200px;
+	font-size: 21px;
 }
 
 #New_Password_Input {
-	margin-top: -31px;
-	margin-right: 430px;
+	margin-top: -35px;
+	margin-right: 960px;
 	height: 30px;
 }
 
 #Check_Password_Label {
-	margin-left: 440px;
+	margin-left: 950px;
+	margin-top: -12px;
+	font-size: 21px;
 }
 
 #Check_Password_Input {
-	margin-top: -30px;
-	margin-right: 540px;
+	margin-top: -32px;
+	margin-right: 1125px;
 }
 
 #Reset_Password_Button {
-	margin-right: 620px;
+	margin-right: 1250px;
 }
 
 /* Headings */
@@ -521,8 +534,9 @@ h1 {
 /* Text */
 
 #Main_Text {
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 600px;
+	margin-right: 600px;
+	font-size: 21px;
 }
 
 /* Useful, Generalized Classes */
@@ -551,6 +565,10 @@ a:hover {
 	text-decoration: none;
 }
 
+th {
+	background-color: white;
+}
+
 table, th, td {
 	border: 1px solid black;
 }
@@ -558,6 +576,7 @@ table, th, td {
 table {
 	text-align: center;
 	font-size: 16px;
+	color: black;
 }
 
 td {
@@ -580,11 +599,11 @@ td:nth-child(2) {
 }
 
 td:nth-child(odd), th:nth-child(odd) {
-	background-color: lightblue;
+	background-color: grey;
 }
 
 td:nth-child(even), th:nth-child(even) {
-	background-color: orange;
+	background-color: white;
 } 
 
 td:not(:nth-child(2)) {

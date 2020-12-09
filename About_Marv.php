@@ -15,13 +15,14 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+			<span> <img id="Logo" height="300px" width="300px" src="Logo_FINAL.png"> </img> </span>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> <br>
 			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
 			<span class="Welcome_Item"> About Marv </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
 			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
-
+			
 			<?php
 				if (isset($_SESSION['Username'])) {
 					$CurrentUsername = $_SESSION['Username'];
@@ -32,7 +33,7 @@
 						$AdminOrNot = mysqli_query($connection, "SELECT users.User_Number, user_account_type.Admin_Account FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number WHERE (user_account_type.Admin_Account != 0 && user_account_type.Users_User_Number = '$CurrentUserNumber')");
 
 						if (mysqli_num_rows($AdminOrNot) > 0) {
-							echo "<br> <span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
+							echo "<span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
 						}
 					}
 				}
@@ -51,42 +52,44 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>
+
 				</div>
 				<br><br>
-
+				
 				<div id='About_Marv_Main_Text_Div'>
 					<h2 id='Main_Heading' class='Center'> What Marv Is </h2>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
-							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'>
+							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
+								<a id='Reset_Password_Link_Logged_In' href='Reset_Password.php'> <b> <u> Password Reset </u> </b> </a>
 							</form>
 					</div>
-
+					
 				</div>
 				<br><br>
-				<div id='About_Marv_Main_Text_Div'>
+				<div id='About_Marv_Main_Text_Div_Logged_In'>
 					<h2 id='Main_Heading_Logged_In' class='Center'> What Marv Is </h2>";
-				}
+				} 
 			?>
 		</div>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-		<h4>
 			<p id="Main_Text"> Throughout much of human history, from town criers to news on the internet, humans have depended on some form of organized news to provide them with a microscale and macroscale understanding of the world around them. As no individual is humanly capable of reaching these understandings without some form of news to educate them, humanity has necessarily become dependent on the news. This dependence on the news necessarily and heavily influences the feelings of people about any
             particular subject, in some cases going so far as to spur people to action. This dependence, coupled with this personal influence, is what has made the notion of "fake news" so dangerous. Now, fake news isn't simply going to "go away," and its harmful influence over the populace cannot be completely eradicated. However, it was this problem that sparked the idea for Marv: "What if a service could be given that would assist the average person in determining whether or not a news article is fake, thereby mitigating the effects of fake news over the populace?" That service, Marv, was born.
+			<br><br>
+			
+			<b>IMPORTANT: </b>Marv is designed to be a tool to assist the user. While powerful, Marv's predictions should not be treated as objective fact. To do so would be an unethical misuse of Marv's functionality. Marv is a powerful tool when used to assist a user's intuition when deciding if information is real or fake.
 
 			<br><br>
-
-			Marv, written in python, makes use of the
-
+			
+			Marv, written in python, makes use of the Google BERT algorithm to make predictions that are accurate as possible.
+			
 			<br><br>
-
+			
 			To use Marv, simply click the "Use Marv" tab at the top of the page.
 			</p>
-		</h4>
+			
 		</div>
 	</body>
 </html>
@@ -109,19 +112,6 @@
 </html>
 
 <style>
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
-  }
-}
-
-h4 {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out 0.5s forwards;
-}
 
 #Login_Title{
 position: relative;
@@ -140,8 +130,9 @@ input{
 	float: right;
 
 }
-.ml3{
-	text-align: center;
+
+.ml3 {
+	text-align: left;
 
 }
 </style>

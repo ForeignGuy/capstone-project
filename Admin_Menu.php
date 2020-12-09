@@ -24,7 +24,7 @@
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span> 
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span> 
 			<span Id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
-			<br> <span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>
+			<span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>
 			<?php
 				if (!isset($_SESSION['Username'])) { 
 				echo "<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>

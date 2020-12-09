@@ -15,13 +15,14 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+			<span> <img id="Logo" height="300px" width="300px" src="Logo_FINAL.png"> </img> </span>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> <br>
 			<span class="Welcome_Item"> <a href="Homepage.php"> Homepage </a> </span>
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> About Us </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
 			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
-
+			
 					<?php
 				if (isset($_SESSION['Username'])) {
 					$CurrentUsername = $_SESSION['Username'];
@@ -32,7 +33,7 @@
 						$AdminOrNot = mysqli_query($connection, "SELECT users.User_Number, user_account_type.Admin_Account FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number WHERE (user_account_type.Admin_Account != 0 && user_account_type.Users_User_Number = '$CurrentUserNumber')");
 
 						if (mysqli_num_rows($AdminOrNot) > 0) {
-							echo "<br> <span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
+							echo "<span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
 						}
 					}
 				}
@@ -51,36 +52,35 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>
-					</div>
-
+			</div>
+		
 					<br><br>
-
-					<div id='About_Marv_Main_Text_Div'>
+		
+					<div id='About_Us_Main_Text_Div'>
 						<h2 id='Main_Heading' class='Center'> Who We Are </h2>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
-							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'>
+							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
+								<a id='Reset_Password_Link_Logged_In' href='Reset_Password.php'> <b> <u> Password Reset </u> </b> </a>
 							</form>
 					</div>
-
+		
 					<br><br>
-
-					<div id='About_Marv_Main_Text_Div'>
+		
+					<div id='About_Us_Main_Text_Div_Logged_In'>
 						<h2 id='Main_Heading_Logged_In' class='Center'> Who We Are </h2>";
-				}
+				} 
 			?>
-			<h4>
-			<p id="Main_Text"> Our Team is comprised of Oakland University undergraduates in The School of Engineering and Computer Science at Oakland University. Our group has created Marv in our Senior Capstone Project class. This project is the culmination of our times at the university, but it also shows our ability to move past our comfort zones.
-
+			<p id="Main_Text"> Our Team is comprised of Oakland University undergraduates in The School of Engineering and Computer Science at Oakland University. Our group has created Marv in our Senior Capstone Project class. This project is the culmination of our times at the university, but it also shows our ability to move past our comfort zones. 
+			
+			<br><br> 
+			
+			The overall methodology that our group used to complete our project was "divide and conquer." Each member in our group has certain strengths and certain weaknesses for coding, and after recognizing these strengths and weaknesses, we've assigned tasks based on them. 
 			<br><br>
-
-			The overall methodology that our group used to complete our project was "divide and conquer." Each member in our group has certain strengths and certain weaknesses for coding, and after recognizing these strengths and weaknesses, we've assigned tasks based on them.
-			<br><br>
-			<p id="About_Us_Heading" class="Center"> Our team consists of:
+			<h4 id="About_Us_Heading" class="Center"> Our team consists of: </h4>
 				<ol id="About_Us_List">
 					<li> Jacob Baum </li>
 					<li> Melvin Laubstein </li>
@@ -89,7 +89,6 @@
 					<li> Jonathan Sienkiewicz </li>
 					<li> Zaid Eliyas </li>
 				</ol>
-			</h4>
 		</div>
 	</body>
 </html>
@@ -112,19 +111,6 @@
 </html>
 
 <style>
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
-  }
-}
-
-h4 {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out 0.5s forwards;
-}
 
 #Login_Title{
 position: relative;
@@ -143,8 +129,9 @@ input{
 	float: right;
 
 }
-.ml3{
-	text-align: center;
+
+.ml3 {
+	text-align: left;
 
 }
 </style>

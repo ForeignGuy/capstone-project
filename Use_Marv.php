@@ -33,7 +33,7 @@
 						$AdminOrNot = mysqli_query($connection, "SELECT users.User_Number, user_account_type.Admin_Account FROM `users` INNER JOIN `user_account_type` on users.User_Number = user_account_type.Users_User_Number WHERE (user_account_type.Admin_Account != 0 && user_account_type.Users_User_Number = '$CurrentUserNumber')");
 
 						if (mysqli_num_rows($AdminOrNot) > 0) {
-							echo "<br> <span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
+							echo "<span id='Admin_Menu_Link'> <a href='Admin_Menu.php'> Admin Menu </a> </span>";
 						}
 					}
 				}
@@ -65,7 +65,7 @@
 							</form>";
 					echo "</div>";		
 					echo "<form method='POST' action=''>
-							<h3 id='Use_Marv_Heading'> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the entire text of the article in the box below (rather than just the article headline/title). </h3> <h1 style='color:red'>NOTE: Marv's predictions strive to be as accurate as possible. Marv is a powerful tool, but it can still make mistakes. Do not use Marv on its own to determine whether or not a news article is fake. Do not use Marv as anything other than as a <u> supplementary</u> tool in detecting fake news.</h1>
+							<h3 id='Use_Marv_Heading'> Please paste the text of any news article in the box below, and then hit the button to check its validity. For the best accuracy, paste the headline of an article as opposed to a short phrase or the whole article. </h3> 
 							<textarea id='Headline' name='Headline' rows='5' cols='120' placeholder='Article text goes here.' required></textarea>
 							<br><br>
 							<input type='submit' id='Headline_Submit' name='Use_Marv_Input' value='Click To See Article Validity'> </input>
@@ -76,10 +76,10 @@
 					 <div align='center'>";
 					if(isset($_POST['Use_Marv_Input'])) {
 						$UserInput = $_POST['Headline'];
-						$command = escapeshellcmd("MarvTest.py $UserInput");
-						$output = shell_exec($command);
-						$output = "Results from your article search: " . $output;
-						echo "<textarea id='Output_Text_Area' rows='5', cols='60', class='Center', disabled>$output</textarea>";
+						set_time_limit(1000);
+                				$output = shell_exec("MarvFinal.py ; C:\Users\Jacob Baum\anaconda3\bin\python -V 2>&1 $UserInput");
+						$temp = str_replace("I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll", " ", $output);
+                				echo "<textarea id='Output_Text_Area' rows='8' cols='100' class='Center' disabled>'$temp'</textarea>";
 					}
 				}
 			?>
