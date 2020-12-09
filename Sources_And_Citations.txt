@@ -1,0 +1,37 @@
+1. Allowing Python Files to Be Executed from A PHP Script
+	Hasan, M. (2018, January 30). Running Python script in PHP: Capture all 
+		outputs. Retrieved from https://stackoverflow.com/questions/37042904/running-python-script-in-php-capture-all-outputs
+
+2. Linking Source to Code (Legacy--No Longer in Use)
+	Randerson112358. (2020, April 11). Classify Flower Images Using Machine 
+		Learning &amp; Python. Retrieved from https://medium.com/@randerson112358/classify-flower-images-using-machine-learning-python-549c98173ca4
+
+3.API Reference Guide
+	API Reference. (2007). Retrieved from z
+		https://scikit-learn.org/stable/modules/classes.html
+
+4. Intro to ML Programming
+	Brownlee, J. (2019, February 10). Your First Machine Learning Project in Python 
+		Step-By-Step. Retrieved from https://machinelearningmastery.com/machine-learning-in-python-step-by-step/
+
+5. News Dataset (Legacy--No Longer in Use)
+	Advanced Python Project - Detecting Fake News with Python. (2020, August 06). 
+		Retrieved from https://data-flair.training/blogs/advanced-python-project-detecting-fake-news/. 
+
+6. General learning tool
+	Newman (CVPcorp), N. (2019, December 19). CVPcorp/example-notebooks. 
+		Retrieved from https://github.com/CVPcorp/example-notebooks/blob/master/BERT_fakeNews.ipynb 
+
+7. Passing variables from PHP to Python
+	Kandan, M. (2019, May 26). Passing value from PHP script to Python script. 
+		Retrieved from https://stackoverflow.com/questions/4977125/passing-value-from-php-script-to-python-script
+
+8. Create Pandas dataframe to format arrays
+	How to Create Pandas DataFrame in Python. (2020, October 5). Retrieved from 
+		https://datatofish.com/create-pandas-dataframe/
+
+9. Loading dataset from .CSV
+	Rampion. (2013, June 12). LOAD DATA from CSV file where doublequote was 
+		used as the escape character. Retrieved from https://stackoverflow.com/questions/17053530/load-data-from-csv-file-where-doublequote-was-used-as-the-escape-character
+
+
