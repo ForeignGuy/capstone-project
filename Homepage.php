@@ -15,13 +15,13 @@
 	<body>
 		<div id="Welcome_Bar"> <br>
 			<h1 class="ml3">Welcome to Marv<span id="Greetings" class="Center"><?php if (isset($_SESSION['Username'])) { echo ", "; echo $_SESSION['Username'];  echo "!"; }?></span> </h1>
-			<span> <img id="Logo" height="300px" width="300px" src="Logo_FINAL.png"> </img> </span>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> <br>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 			<span class="Welcome_Item"> Homepage </span>
 			<span class="Welcome_Item"> <a href="About_Marv.php"> About Marv </a> </span>
 			<span class="Welcome_Item"> <a href="About_Us.php"> About Us </a> </span>
 			<span class="Welcome_Item"> <a href="Use_Marv.php"> Use Marv </a> </span>
 			<span id="Final_Welcome_Item"> <a href="Contact_Us.php"> Contact Us </a> </span>
+
 			<?php
 				if (isset($_SESSION['Username'])) {
 					$CurrentUsername = $_SESSION['Username'];
@@ -38,8 +38,8 @@
 				}
 			?>
 			<?php
-				if (!isset($_SESSION['Username'])) { 
-				echo "<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>
+				if (!isset($_SESSION['Username'])) { echo "
+					<form class='Login_Or_Logout_Area Float_Right' method='POST' action='PHP_Actions/Login_Or_Register.php'>
 						<h4 id='Login_Title'> Sign-in/Register </h4>
 						<i class='fa fa-user icon'></i>
 					 <input placeholder='Username' name= 'Username' type='text' id='Username'required>
@@ -51,34 +51,39 @@
 					</form>
 					<br>
 					<a href='Marv_Reg.php'> <button id='Register_Button' class='Login_And_Register_Buttons Float_Right' name='Register_Button' value='Register'> Register </button> </a>
-			
-					</div>	
-					
+					<div id='Reset_Password_Link'> <a href='Reset_Password.php'> <b> <u> I Forgot My Password </u> </b> </a> </div>
+
+					</div>
+					<br><br>
+
 					<div id='Homepage_Main_Text_Div'>
-						<h2 id='Main_Heading' class='Center'> Our Site </h2>";	
+						<h2 id='Main_Heading' class='Center'> Our Site </h2>";
 				} else {
 					echo "<div class='Login_Or_Logout_Area Float_Right'>
-							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'> 
+							<form id='Logout_Form' class='Float_Right' method='POST' action='PHP_Actions/Logout.php'>
 								<h4 id='Logout_Title'> Log Out </h4>
 								<br><br><br><br><br>
 								<input type='submit' id='Logout_Button' name='Logout' value='Log Out'>
-								<a id='Reset_Password_Link_Logged_In' href='Reset_Password.php'> <b> <u> Password Reset </u> </b> </a>
 							</form>
-							
-						</div>
-						
-						<br><br>
-		
-						<div id='Homepage_Main_Text_Div_Logged_In'>
-							<h2 id='Main_Heading_Logged_In' class='Center'> Our Site </h2>";
-				} 
-			?>
 
-			<p id="Main_Text"> Welcome to our site! To use our site, please click on any of the tabs above. The "About Marv" and "About Us" pages will provide you with a description of our service ("About Marv") and a description of our group ("About Us"). The "Use Marv" page will allow you to use our primary service: Marv's fake news detection service. The "Contact Us" page will allow you to provide us with feedback regarding either Marv's fake news detection service, or regarding our website in general.
+						</div>
+
+						<br><br>
+
+						<div id='Homepage_Main_Text_Div'>
+							<h2 id='Main_Heading_Logged_In' class='Center'> Our Site </h2>";
+				}
+			?>
+			<div>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+			<h4>
+			<p class="Main_Text"> Welcome to our site!
+				To use our site, please click on any of the tabs above. The "About Marv" and "About Us" pages will provide you with a description of our service ("About Marv") and a description of our group ("About Us"). The "Use Marv" page will allow you to use our primary service: Marv's fake news detection service. The "Contact Us" page will allow you to provide us with feedback regarding either Marv's fake news detection service, or regarding our website in general.
 			<br><br>
-			Note: "Use Marv" and "Contact Us" will require that you login, using the boxes in the 
+			Note: "Use Marv" and "Contact Us" will require that you login, using the boxes in the
 			top right-hand corner, for full functionality.
 			</p>
+		</h4>
 		</div>
   <script>
     $(document).ready(function() {
@@ -99,6 +104,19 @@
 </html>
 
 <style>
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+h4 {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out 0.5s forwards;
+}
 
 #Login_Title{
 position: relative;
@@ -117,8 +135,8 @@ input{
 	float: right;
 
 }
-.ml3 {
-	text-align: left;
+.ml3{
+	text-align: center;
 
 }
 </style>
